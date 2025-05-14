@@ -15,7 +15,13 @@ const userSchema = new mongoose.Schema(
     },
     image: {
       type: String
-    }
+    },
+    favoriteMovies: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie'
+      }
+    ]
   },
   {
     timestamps: true
