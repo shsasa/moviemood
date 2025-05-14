@@ -18,8 +18,6 @@ mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`)
 })
 
-app.use(passUserToView)
-
 // Middleware to parse URL-encoded data from forms (Body Parser)
 app.use(express.urlencoded({ extended: false }))
 
@@ -46,6 +44,7 @@ const authController = require('./controllers/auth')
 const usersController = require('./controllers/users')
 app.use('/auth', authController)
 app.use('/users', usersController)
+app.use(passUserToView)
 
 //GET METHOD
 app.get('/', async (req, res) => {
