@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
+//controller
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs')
 })
@@ -17,9 +18,12 @@ router.post('/sign-up', async (req, res) => {
     return res.send('Password and confirm password must match')
   }
 
+  //Register the user
+  //bcrypt for password encryption
   const hashedPassword = bcrypt.hashSync(req.body.password, 10)
   req.body.password = hashedPassword
 
+  //Create the user
   const user = await User.create(req.body)
   res.send(`Thanks for signing up ${user.username}`)
 })
