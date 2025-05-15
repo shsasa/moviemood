@@ -1,0 +1,41 @@
+<body>
+      <%- include('../partials/_navbar.ejs') %>
+
+  <h1>All Movies</h1>
+  
+
+  <form action="/movies/search" method="get" style="margin-bottom: 20px">
+    <input
+      type="text"
+      name="searchTerm"
+      placeholder="Search for a movie..."
+      style="padding: 10px; width: 300px"
+      required
+    />
+    <button type="submit" style="padding: 10px">Search</button>
+  </form>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 20px">
+    <% movies.forEach(movie => { %>
+    <div
+      style="
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+      "
+    >
+      <h2><%= movie.title %></h2>
+      <% if (movie.poster_path) { %>
+      <img
+        src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
+        alt="<%= movie.title %>"
+        style="width: 100%"
+      />
+      <% } else { %>
+      <p>No poster available</p>
+      <% } %>
+    </div>
+    <% }) %>
+  </div>
+</body>

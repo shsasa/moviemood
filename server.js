@@ -38,13 +38,15 @@ app.use(
     saveUninitialized: true
   })
 )
+app.use(passUserToView)
 
 //Require Controller
 const authController = require('./controllers/auth')
 const usersController = require('./controllers/users')
+const moviesController = require('./controllers/movies')
 app.use('/auth', authController)
 app.use('/users', usersController)
-app.use(passUserToView)
+app.use('/movies', moviesController)
 
 //GET METHOD
 app.get('/', async (req, res) => {
