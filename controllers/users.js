@@ -15,5 +15,10 @@ router.get('/:id', async (req, res) => {
   res.render('users/show.ejs', { userprofile: user })
 })
 
+router.get("/:id/edit", isSignedIn, async (req,res)=>{
+  if (req.params.id !== req.session.user._id.toString()){return res.send("Unauthorized")}
+  const user = await User.findById(req.params.id)
+  res.render("users/edit.ejs",{user})
+})
 
 module.exports = router

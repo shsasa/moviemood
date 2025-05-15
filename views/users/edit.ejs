@@ -1,1 +1,25 @@
-<h1>Edit Profile</h1>
+<!-- <%- include('../partials/_navbar.ejs') %> -->
+<h1>Edit Your Profile</h1>
+
+<form action="/users/<%= user._id %>?_method=PUT" method="POST">
+
+<label for="username">Username:</label>
+<input type="text"  id="username" name="username" value="<%=user.username %>" required />
+<br /><br />
+
+
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" value="<%= user.email %>" />
+<br /><br />
+
+
+<label for="image">Profile Image URL</label>
+<input type="text" id="image" name="image" value="<%= user.image %>"/>
+ <br /><br />
+
+
+ <button type="submit">Update Profile</button>
+ <br /><br />
+
+  <a href="/users/<%= user._id %>">Cancel</a>
+</form>
