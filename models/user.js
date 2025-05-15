@@ -11,11 +11,22 @@ const userSchema = new mongoose.Schema(
       required: true
     },
     email: {
-      type: String
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true
     },
     image: {
-      type: String
-    }
+      type: String,
+
+      default: 'assets/user-pic.png'
+    },
+    favoriteMovies: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie'
+      }
+    ]
   },
   {
     timestamps: true

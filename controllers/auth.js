@@ -17,6 +17,9 @@ router.post('/sign-up', async (req, res) => {
   if (req.body.password !== req.body.confirmPassword) {
     return res.send('Password and confirm password must match')
   }
+  if (!req.body.image || req.body.image.trim() === '') {
+    delete req.body.image
+  }
 
   //Register the user
   //bcrypt for password encryption
