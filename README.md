@@ -38,25 +38,32 @@ MovieMood is a web app that helps you keep track of the movies you want to watch
 
 ---
 
-#### Home page (add it later)
+#### Home page 
 
-![Image]()
+![Image](https://i.imgur.com/9qGjoov.png)
 
-#### Sign-in page (add it later)
+#### Sign-in page 
 
-![Image]()
+![Image](https://i.imgur.com/cyQX7CB.png)
 
-#### Sign-up page (add it later)
+#### Sign-up page 
 
-![Image]()
+![Image](https://i.imgur.com/L2kVWFN.png)
 
-#### movies page (add it later)
+#### movies page 
 
-![Image]()
+![Image](https://i.imgur.com/6tfwdUq.png)
 
-#### Profile page (add it later)
+#### Profile page 
 
-![Image]()
+![Image](https://i.imgur.com/VbTMpH7.png)
+
+#### User Movie List page 
+![Image](https://i.imgur.com/A0kJ6tu.png)
+
+#### Add List page 
+
+![Image](https://i.imgur.com/6CzJUTN.png)
 
 ---
 
