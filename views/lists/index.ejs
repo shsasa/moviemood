@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('../partials/_navbar.ejs') %>
+    <title>All Movie Lists</title>
+  </head>
+  <body>
+    <h1>All Movie Lists</h1>
+    <% if (lists.length === 0) { %>
+    <p>No lists found.</p>
+    <% } else { %> <% lists.forEach(list => { %>
+    <br />
+    <h2><%= list.title %></h2>
+    <p>Description:<%= list.description %></p>
+    <p>Status:<%= list.public ? 'Public' : 'Private' %></p>
+
+    <p>Preview Movies:</p>
+    <% list.movies.slice(0, 3).forEach(movie => { %>
+    <img
+      src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
+      alt="<%= movie.title %>"
+      width="100"
+    />
+    <% }) %>
+
+    <p><a href="/lists/<%= list._id %>">View Full List</a></p>
+    <% }) %> <% } %>
+  </body>
+</html>

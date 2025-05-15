@@ -44,9 +44,11 @@ app.use(passUserToView)
 const authController = require('./controllers/auth')
 const usersController = require('./controllers/users')
 const moviesController = require('./controllers/movies')
+const listController= require('./controllers/lists')
 app.use('/auth', authController)
 app.use('/users', usersController)
 app.use('/movies', moviesController)
+app.use('/lists', listController)
 
 //GET METHOD
 app.get('/', async (req, res) => {
