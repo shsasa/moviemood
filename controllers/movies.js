@@ -5,6 +5,7 @@ const apiKey = process.env.API_KEY
 const Movie = require('../models/movie')
 
 const axios = require('axios')
+const User = require('../models/user')
 
 router.get('/', async (req, res) => {
   try {
@@ -39,19 +40,31 @@ router.get('/search', async (req, res) => {
 })
 
 // add movie to favorites
-router.post('/add', async (req, res) => {
+router.post('/add-favorites', async (req, res) => {
   try {
     const { title, apiId, poster_path } = req.body
     const movie = await Movie.create({ title, apiId, poster_path })
     // add the movie to the user favorites
     // Assuming you have a user session and a User model
-    console.log(req.session.user)
-    const user = await User.findById(req.session.user._id)
-    if (user) {
-      user.favorites.push(movie._id)
-      await user.save()
-    }
+    await User.findByIdAndUpdate(req.session.user._id, {
+      $push: { favorites: movie._id }
+    })
+
     res.redirect('/movies')
+  } catch (err) {
+    console.log(err)
+    res.status(500).send('Internal Server Error')
+  }
+})
+
+// delete movie from favorites
+router.delete('/delete-favorites/:id', async (req, res) => {
+  try {
+    const { title, apiId, poster_path } = req.body
+    console.log(req.session.user)
+    const user = await User.findById(req.session.user._id, {
+      $pull: { favorites: movie._id }
+    })
   } catch (err) {
     console.log(err)
     res.status(500).send('Internal Server Error')
