@@ -11,4 +11,13 @@ nav {
    display: flex;
    justify-content: space-between;
    align-items: center;
+   flex-wrap: wrap;
+   
+}
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-right: 1rem;
+  font-weight:bold;
+  
 }
