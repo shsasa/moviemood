@@ -22,10 +22,29 @@ nav a{
   
 }
 
-nav img{
+.nav-right img{
   width: 40px;
   height:40px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 0.5rem;
+}
+
+.nav-left{
+  display:flex;
+  align-items: center;
+}
+.nav-right{
+  display:flex;
+  align-items: center;
+}
+
+.nav-right span{
+  margin-right: 1rem;
+  font-weight: bold;
+ 
+}
+
+nav a:hover{
+  text-decoration: underline;
 }
