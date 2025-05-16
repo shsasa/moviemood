@@ -5,6 +5,7 @@
    <img src="<%= (user.image || 'https://i.imgur.com/dM7Thhn.png').trim() %>" alt="Profile Image" width="100" />
     <h1>Hi <%= user.username %></h1>
     <a href="/auth/sign-out">Sign out</a>
+    <a href="/users/<%= user._id %>/edit">Edit Profile</a>
   <% } else { %>
     
   <h1>Welcome to the app, guest.</h1>

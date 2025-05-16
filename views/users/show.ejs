@@ -1,5 +1,5 @@
 <body>
-  <%- include('../partials/_navbar.ejs') %>
+  <!-- <%- include('../partials/_navbar.ejs') %> -->
 <h1><%= userprofile.username %>'s Profile</h1>
 <p>Email:<%= userprofile.email %></p>
 <% if(userprofile.image) { %>
@@ -8,5 +8,7 @@
   <p>No profile image set.</p>
 
 <% } %>
-  <a href="/users">Back to All Users</a>
+<br />
+  <!-- <a href="/users">Back to All Users</a> -->
+   <a href="/">Back to Home</a>
 </body>

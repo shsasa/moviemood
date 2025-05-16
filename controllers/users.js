@@ -15,5 +15,26 @@ router.get('/:id', async (req, res) => {
   res.render('users/show.ejs', { userprofile: user })
 })
 
+router.get("/:id/edit", isSignedIn, async (req,res)=>{
+  if (req.params.id !== req.session.user._id.toString()){return res.send("Unauthorized")}
+  const user = await User.findById(req.params.id)
+  res.render("users/edit.ejs",{user})
+})
 
+
+router.put("/:id", isSignedIn, async (req, res) => {
+  if (req.params.id !== req.session.user._id.toString()) {
+    return res.send("Unauthorized");
+  }
+  const { username, email, image } = req.body;
+  const updatedUser =await User.findByIdAndUpdate(req.params.id, {
+    username,
+    email,
+    image: image?.trim() || undefined
+  },
+  {new : true}
+);
+req.session.user.username = updatedUser.username
+  res.redirect(`/users/${req.params.id}`);
+});
 module.exports = router
