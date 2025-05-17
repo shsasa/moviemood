@@ -101,4 +101,9 @@ nav a:hover{
 }
 .auth-container a{
   color: white;
+  text-align: center;
+ 
+}
+.auth-container h2{
+  text-align: center;
 }

@@ -1,25 +1,36 @@
-<!-- <%- include('../partials/_navbar.ejs') %> -->
-<h1>Edit Your Profile</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Profile | MovieMood</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+<%- include('../partials/_navbar.ejs') %>
+<div class="auth-container">
+<h2>Edit Your Profile</h2>
 
 <form action="/users/<%= user._id %>?_method=PUT" method="POST">
 
 <label for="username">Username:</label>
 <input type="text"  id="username" name="username" value="<%=user.username %>" required />
-<br /><br />
+
 
 
 <label for="email">Email:</label>
 <input type="email" id="email" name="email" value="<%= user.email %>" />
-<br /><br />
+
 
 
 <label for="image">Profile Image URL</label>
 <input type="text" id="image" name="image" value="<%= user.image %>"/>
- <br /><br />
+ 
 
 
  <button type="submit">Update Profile</button>
- <br /><br />
 
-  <a href="/users/<%= user._id %>">Cancel</a>
+
+  <!-- <a href="/users/<%= user._id %>">Cancel</a> -->
 </form>
+</div>
+</body>
