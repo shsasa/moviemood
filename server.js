@@ -53,6 +53,10 @@ app.get('/', async (req, res) => {
   res.render('index.ejs')
 })
 
+// app.use(isSignedIn)
+const favoritesController = require('./controllers/favorites')
+app.use('/favorites', favoritesController)
+
 //listen to port
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`)
