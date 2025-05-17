@@ -45,7 +45,7 @@
     </form>
     <% } else { %>
     <!-- Add to Favorites -->
-    <form action="/movies/add-favorites" method="post">
+    <form action="/favorites/add" method="post">
       <input type="hidden" name="title" value="<%= movie.title %>" />
       <input type="hidden" name="apiId" value="<%= movie.apiId %>" />
       <input

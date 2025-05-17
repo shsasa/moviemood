@@ -73,7 +73,7 @@ router.get('/:id', async (req, res) => {
     // check if the movie is already in the database
     const existingMovie = await Movie.findOne({ apiId: movieId })
     if (!existingMovie) {
-      await Movie.create({
+      await Movie.findOrCreate({
         title: movie.title,
         apiId: movieId,
         poster_path: movie.poster_path
@@ -89,6 +89,8 @@ router.get('/:id', async (req, res) => {
     } else {
       res.render('movies/show.ejs', { movie, isFavorite: false })
     }
+
+
   } catch (err) {
     console.log(err)
     res.status(500).send('Internal Server Error')

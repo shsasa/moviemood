@@ -21,16 +21,14 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/add', async (req, res) => {
+  const { title, apiId, poster_path } = req.body
   try {
-    const { title, apiId, poster_path } = req.body
-    const movie = await Movie.create({ title, apiId, poster_path })
-    // add the movie to the user favorites
-    // Assuming you have a user session and a User model
+    const movie = await Movie.findOrCreate({ title, apiId, poster_path })
+
     await User.findByIdAndUpdate(req.session.user._id, {
       $push: { favoriteMovies: movie._id }
     })
 
-    // Redirect to the movie details page or wherever you want
     console.log(movie.apiId)
     const url = `/movies/${movie.apiId}`
     res.redirect(url)
@@ -57,14 +55,12 @@ router.delete('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { title, apiId, poster_path } = req.body
-    const movie = await Movie.create({ title, apiId, poster_path })
-    // add the movie to the user favorites
-    // Assuming you have a user session and a User model
+    const movie = await Movie.findOrCreate({ title, apiId, poster_path })
+
     await User.findByIdAndUpdate(req.session.user._id, {
       $push: { favoriteMovies: movie._id }
     })
 
-    // Redirect to the movie details page or wherever you want
     console.log(movie.apiId)
     const url = `/movies/${movie.apiId}`
     res.redirect(url)

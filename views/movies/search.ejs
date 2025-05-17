@@ -28,28 +28,6 @@
         <strong>Rating:</strong> <%= movie.vote_average %> (Votes: <%=
         movie.vote_count %>)
       </p>
-
-      <% if (user) { %>
-
-      <form
-        action="/movies/add-favorites"
-        method="post"
-        style="margin-top: 10px"
-      >
-        <input type="hidden" name="title" value="<%= movie.title %>" />
-        <input type="hidden" name="apiId" value="<%= movie.id %>" />
-        <input
-          type="hidden"
-          name="poster_path"
-          value="<%= movie.poster_path %>"
-        />
-        <button type="submit" style="padding: 5px 10px">
-          Add to Favorites
-        </button>
-      </form>
-      <% } else { %>
-      <p style="color: red; margin-top: 10px">Log in to add to favorites</p>
-      <% } %>
     </div>
     <% }) %>
   </div>
