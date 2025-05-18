@@ -81,5 +81,42 @@
                   <% } %>
             </div>
          <% } %>   
+ <!-- show existing reviews -->
+  <div class="review-section">
+    <h2>Reviews</h2>
+    <% if(reviews && reviews.length >0){ %>
+      <%reviews.forEach(review =>{ %>
+<div class="review-box">
+  <p><strong><%= review.user.username %>:</strong></p>
+  <p><%= review.rating %>/5</p>
+  <p><%= review.comment %></p>
+</div>
+    <%  }) %>
+    <% } else { %>
+    
+    <p>No reviews yet. Be the first to write one!</p>
 
+    <% } %>
+    <!-- Add a review -->
+     <% if (user){ %>
+      <div class="review-form">
+        <h3>Leave a Review</h3>
+        <form action="/reviews" method="POST">
+          <input type="hidden" name="movieId" value="<%=movie.id %>">
+<label for ="rating">Rating:</label>
+<select name ="rating" id="rating" required>
+  <% for (let i =1;i <=5; i++){ %>
+  <option value="<% i %>"><%= i %></option>
+    <%} %>
+</select>
+<br /> <br />
+<label for="comment">Comment:</label><br/>
+<textarea name="comment" id="comment" rows="4" cols="100"></textarea>
+<br /> <br />
+<button type="submit">Submit Review</button>
+        </form>
+      </div>
+
+   <%  } %>
+  </div>
 </body>
