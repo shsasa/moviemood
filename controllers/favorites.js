@@ -20,32 +20,21 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/add', async (req, res) => {
-  const { title, apiId, poster_path } = req.body
+router.delete('/:apiId', async (req, res) => {
   try {
-    const movie = await Movie.findOrCreate({ title, apiId, poster_path })
-
+    const apiId = req.params.apiId
+    console.log('Removing movie from favorites:', apiId)
+    // Find the movie in the database
+    const movie = await Movie.findOne({ apiId })
+    if (!movie) {
+      return res.status(404).send('Movie not found')
+    }
+    // Remove the movie from the user's favorite movies
     await User.findByIdAndUpdate(req.session.user._id, {
-      $push: { favoriteMovies: movie._id }
-    })
-
-    console.log(movie.apiId)
-    const url = `/movies/${movie.apiId}`
-    res.redirect(url)
-  } catch (err) {
-    console.log(err)
-    res.status(500).send('Internal Server Error')
-  }
-})
-
-router.delete('/:id', async (req, res) => {
-  try {
-    const apiId = req.body.id
-    const user = await User.findById(req.session.user._id, {
       $pull: { favoriteMovies: movie._id }
     })
-
-    res.redirect(`/${apiId}`)
+    const url = `/movies/${movie.apiId}`
+    res.redirect(url)
   } catch (err) {
     console.log(err)
     res.status(500).send('Internal Server Error')
@@ -55,6 +44,7 @@ router.delete('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { title, apiId, poster_path } = req.body
+    console.log('Adding movie to favorites:', { title, apiId, poster_path })
     const movie = await Movie.findOrCreate({ title, apiId, poster_path })
 
     await User.findByIdAndUpdate(req.session.user._id, {

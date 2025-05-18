@@ -12,7 +12,7 @@
         text-align: center;
       "
     >
-      <a href="/movies/<%= movie.id %>">
+      <a href="/movies/<%= movie.apiId %>">
         <h2><%= movie.title %></h2>
         <% if (movie.poster_path) { %>
         <img
@@ -29,24 +29,6 @@
         %>
       </p>
       <p><strong>Release Date:</strong> <%= movie.release_date || 'N/A' %></p>
-      <form
-        action="/movies/delete-favorites/<%= movie._id %>"
-        method="post"
-        style="margin-top: 10px"
-      >
-        <button
-          type="submit"
-          style="
-            padding: 5px 10px;
-            background-color: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-          "
-        >
-          Remove from Favorites
-        </button>
-      </form>
     </div>
     <% }) %>
   </div>

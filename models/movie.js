@@ -7,7 +7,8 @@ const movieSchema = new mongoose.Schema(
     },
     apiId: {
       type: String,
-      unique: true
+      unique: true,
+      required: true
     },
     poster_path: {
       type: String
@@ -23,6 +24,9 @@ movieSchema.statics.findOrCreate = async function ({
   apiId,
   poster_path
 }) {
+  if (apiId === undefined) {
+    console.warn('❌ Missing apiId:', { title, poster_path })
+  }
   let movie = await this.findOne({ apiId })
   if (!movie) {
     movie = await this.create({ title, apiId, poster_path })

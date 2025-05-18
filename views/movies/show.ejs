@@ -1,71 +1,69 @@
 <body>
-  <h1><%= movie.title %></h1>
+  <h1>
+    <%= movie.title %>
+  </h1>
   <%- include('../partials/_navbar.ejs') %>
 
-  <div style="text-align: center; margin-top: 20px">
-    <% if (movie.poster_path) { %>
-    <img
-      src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>"
-      alt="<%= movie.title %>"
-      style="width: 300px"
-    />
-    <% } else { %>
-    <p>No poster available</p>
-    <% } %>
-  </div>
+    <div style="text-align: center; margin-top: 20px">
+      <% if (movie.poster_path) { %>
+        <img src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>" alt="<%= movie.title %>"
+          style="width: 300px" />
+        <% } else { %>
+          <p>No poster available</p>
+          <% } %>
+    </div>
 
-  <div style="margin-top: 20px; text-align: center">
-    <p><strong>Overview:</strong> <%= movie.overview %></p>
-    <p><strong>Release Date:</strong> <%= movie.release_date %></p>
-    <p>
-      <strong>Rating:</strong> <%= movie.vote_average %> (Votes: <%=
-      movie.vote_count %>)
-    </p>
-    <p><strong>Popularity:</strong> <%= movie.popularity %></p>
-    <p><strong>Language:</strong> <%= movie.original_language %></p>
-  </div>
-  <% if (user) { %>
+    <div style="margin-top: 20px; text-align: center">
+      <p><strong>Overview:</strong>
+        <%= movie.overview %>
+      </p>
+      <p><strong>Release Date:</strong>
+        <%= movie.release_date %>
+      </p>
+      <p>
+        <strong>Rating:</strong>
+        <%= movie.vote_average %> (Votes: <%= movie.vote_count %>)
+      </p>
+      <p><strong>Popularity:</strong>
+        <%= movie.popularity %>
+      </p>
+      <p><strong>Language:</strong>
+        <%= movie.original_language %>
+      </p>
+    </div>
+    <% if (user) { %>
 
-  <div style="margin-top: 20px; text-align: center">
-    <% if (isFavorite) { %>
-    <!-- Remove from Favorites -->
-    <form action="/movies/delete-favorite/<%= movie._id %>" method="post">
-      <button
-        type="submit"
-        style="
+      <div style="margin-top: 20px; text-align: center">
+        <% if (isFavorite) { %>
+          <!-- Remove from Favorites -->
+          <form action="/favorites/<%= movie.id %>/?_method=DELETE" method="post">
+            <button type="submit" style="
           padding: 10px 20px;
           background-color: red;
           color: white;
           border: none;
           cursor: pointer;
-        "
-      >
-        Remove from Favorites
-      </button>
-    </form>
-    <% } else { %>
-    <!-- Add to Favorites -->
-    <form action="/favorites/add" method="post">
-      <input type="hidden" name="title" value="<%= movie.title %>" />
-      <input type="hidden" name="apiId" value="<%= movie.apiId %>" />
-      <input
-        type="hidden"
-        name="poster_path"
-        value="<%= movie.poster_path %>"
-      />
-      <button
-        type="submit"
-        style="
+        ">
+              Remove from Favorites
+            </button>
+          </form>
+          <% } else { %>
+            <!-- Add to Favorites -->
+            <form action="/favorites/" method="post">
+              <input type="hidden" name="title" value="<%= movie.title %>" />
+              <input type="hidden" name="apiId" value="<%= movie.id %>" />
+              <input type="hidden" name="poster_path" value="<%= movie.poster_path %>" />
+              <button type="submit" style="
           padding: 10px 20px;
           background-color: green;
           color: white;
           border: none;
           cursor: pointer;
-        "
-      >
-        Add to Favorites
-      </button>
-    </form>
-    <% } %> <% } %>
-  </div>
+        ">
+                Add to Favorites
+              </button>
+            </form>
+            <% } %>
+              <% } %>
+      </div>
 </body>
