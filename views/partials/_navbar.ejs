@@ -16,6 +16,9 @@
     <div class="nav-left">
       <a href="/">Home</a>
       <a href="/movies">Movies</a>
+      <% if (user) { %>
+        <a href="/favorites">Favorites</a>
+        <% } %>
     </div>
     <div class="nav-right">
       <% if (user) { %>
