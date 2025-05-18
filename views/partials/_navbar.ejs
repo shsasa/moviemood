@@ -1,21 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<nav class ="navbar">
-  <div class ="nav-left">
- <a href="/">Home</a>
-  <a href="/movies">Movies</a>
-  </div>
-   <div class="nav-right">
-     <% if (user) { %>
-   <span>Hi <%= user.username %></span>
-     <a href="/users/<%= user._id %>/edit">Edit Profile</a>
-     <a href="/auth/sign-out">Sign out</a>
-    <img src="<%= (user.image || 'https://i.imgur.com/dM7Thhn.png').trim() %>" alt="Profile Image" width="100" />
-  <% } else { %>
-    
-  <span>Welcome, guest.</span>
-  <a href="/auth/sign-up">Sign up</a>
-  <a href="/auth/sign-in">Sign in</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 
-  <% } %>
+  <title>Document</title>
+</head>
 
-</nav>
+<body>
+
+
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="/">Home</a>
+      <a href="/movies">Movies</a>
+    </div>
+    <div class="nav-right">
+      <% if (user) { %>
+        <span>Hi <%= user.username %></span>
+        <a href="/users/<%= user._id %>/edit">Edit Profile</a>
+        <a href="/auth/sign-out">Sign out</a>
+        <img src="<%= (user.image || 'https://i.imgur.com/dM7Thhn.png').trim() %>" alt="Profile Image" width="100" />
+        <% } else { %>
+
+          <span>Welcome, guest.</span>
+          <a href="/auth/sign-up">Sign up</a>
+          <a href="/auth/sign-in">Sign in</a>
+
+          <% } %>
+
+  </nav>
+
+</body>
+
+</html>
