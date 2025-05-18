@@ -19,7 +19,8 @@ const userSchema = new mongoose.Schema(
     image: {
       type: String,
 
-      default: 'assets/user-pic.png'
+      default: 'https://i.imgur.com/dM7Thhn.png'
+      
     },
     favoriteMovies: [
       {
