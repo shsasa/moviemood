@@ -22,19 +22,23 @@
   </form>
 
 <h3>Selected Movies</h3>
+<!-- if no movies are selected, show a message  -->
 <% if (selectedMovies.length === 0) { %>
   <p>No movies selected yet. Use the search bar above to add.</p>
 <% } %>
 
 <form action="/lists" method="POST">
-
+  <!-- if there are selected movies, display them in list -->
   <% if (selectedMovies.length > 0) { %>
     <ul>
+      <!-- loop through each selected movie -->
       <% selectedMovies.forEach(movie => { %>
         <li>
+          <!-- if the movie has a poster, display the poster -->
           <% if (movie.poster) { %>
             <img src="https://image.tmdb.org/t/p/w200<%= movie.poster %>" alt="<%= movie.title %>" width="100" />
           <% } %>
+          <!-- show a checkbox for each movie with its title, already already checked -->
           <label>
             <input type="checkbox" name="movies" value="<%= movie._id %>" checked />
             <%= movie.title %>

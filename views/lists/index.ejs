@@ -9,16 +9,23 @@
   </head>
   <body>
     <h1>All Movie Lists</h1>
+    <!-- if there are no lists to show, display message  -->
     <% if (lists.length === 0) { %>
     <p>No lists found.</p>
-    <% } else { %> <% lists.forEach(list => { %>
+    <% } else { %> 
+      <!-- if there are lists, loop through each one -->
+      <% lists.forEach(list => { %>
     <br />
+    <!-- show the title of the list -->
     <h2><%= list.title %></h2>
+    <!-- show the description of the list -->
     <p>Description:<%= list.description %></p>
+    <!-- show the status if the list is public or private -->
     <p>Status:<%= list.public ? 'Public' : 'Private' %></p>
-
+      
+    <!-- show up to 3 movie posters as a preview -->
     <p>Preview Movies:</p>
-    <% list.movies.slice(0, 3).forEach(movie => { %>
+    <% list.movies.slice(0, 5).forEach(movie => { %>
     <img
       src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
       alt="<%= movie.title %>"
@@ -26,6 +33,7 @@
     />
     <% }) %>
 
+    <!-- link to view the full list details using the lists ID -->
     <p><a href="/lists/<%= list._id %>">View Full List</a></p>
     <% }) %> <% } %>
   </body>
