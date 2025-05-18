@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= list.title %> - Movie List</title>
+  <%- include('../partials/_navbar.ejs') %>
+</head>
+<body>
+  <h1><%= list.title %></h1>
+
+  <p><strong>Description:</strong> <%= list.description %></p>
+  <p><strong>Status:</strong> <%= list.public ? 'Public' : 'Private' %></p>
+  <p><strong>Created by:</strong> <%= list.user.username %></p>
+
+  <h2>Movies in this list:</h2>
+  <% if (list.movies.length === 0) { %>
+    <p>No movies added to this list yet.</p>
+  <% } else { %>
+    <div style="display: flex; flex-wrap: wrap;">
+      <% list.movies.forEach(movie => { %>
+        <div style="margin: 10px; text-align: center;">
+          <img
+            src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
+            alt="<%= movie.title %>"
+            width="150"
+          />
+          <p><%= movie.title %></p>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (list.user._id.equals(session.user._id)) { %>
+    <a href="/lists/<%= list._id %>/edit">Edit this List</a>
+    <form action="/lists/<%= list._id %>?_method=DELETE" method="POST" style="display:inline;">
+      <button type="submit" onclick="return confirm('Are you sure?')">Delete List</button>
+    </form>
+  <% } %>
+
+  <br /><br />
+  <a href="/lists">← Back to All Lists</a>
+</body>
+</html>

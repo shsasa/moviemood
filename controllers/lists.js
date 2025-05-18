@@ -114,4 +114,35 @@ router.post('/', async (req, res) => {
   }
 })
 
+
+// GET /lists/:id - Show a specific list
+router.get('/:id', async (req, res) => {
+  try {
+    const list = await List.findById(req.params.id)
+      .populate('movies')
+      .populate('user'); // make sure 'user' field is populated
+    res.render('lists/show.ejs', { list, session: req.session })
+  } catch (err) {
+    console.error(err)
+    res.redirect('/lists')
+  }
+})
+
+
+//edit - to edit the list (GET method)
+router.get('/:id/edit', async (req,res)=>{
+  try{
+    const list= await List.findById(req.params.id).populate('movies')
+    const allMovies= await Movie.find()
+
+      // Check if the logged-in user owns the list
+      if (!list.user.equals(req.session.user._id)) {
+        return res.send("You don't have permission to edit this list.");
+      }
+
+  } catch(err){
+    console.log(err);
+    res.redirect('/');
+  }
+})
 module.exports = router
