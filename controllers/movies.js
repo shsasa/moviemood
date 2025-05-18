@@ -9,6 +9,9 @@ const User = require('../models/user')
 
 router.get('/', async (req, res) => {
   try {
+    // Clear selectedMovies from session
+    req.session.selectedMovies = []
+
     const movies = await Movie.find()
     res.render('movies/index.ejs', { movies })
   } catch (err) {

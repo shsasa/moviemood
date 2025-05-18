@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <%- include('../partials/_navbar.ejs') %>
+    <title>Add List</title>
+  </head>
+  <body>
+
+    <h1>Create New List</h1>
+
+  <!-- Search Bar -->
+  <form action="/movies/search" method="GET">
+    <input
+      type="text"
+      name="searchTerm"
+      placeholder="Search for a movie..."
+      required
+    />
+    <button type="submit">Search</button>
+  </form>
+
+<h3>Selected Movies</h3>
+<% if (selectedMovies.length === 0) { %>
+  <p>No movies selected yet. Use the search bar above to add.</p>
+<% } %>
+
+<form action="/lists" method="POST">
+
+  <% if (selectedMovies.length > 0) { %>
+    <ul>
+      <% selectedMovies.forEach(movie => { %>
+        <li>
+          <% if (movie.poster) { %>
+            <img src="https://image.tmdb.org/t/p/w200<%= movie.poster %>" alt="<%= movie.title %>" width="100" />
+          <% } %>
+          <label>
+            <input type="checkbox" name="movies" value="<%= movie._id %>" checked />
+            <%= movie.title %>
+          </label>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <label for="title">List Name:</label>
+  <input type="text" name="title" id="title" required />
+
+  <br /><br />
+
+  <label for="description">Description:</label><br />
+  <textarea name="description" id="description" rows="4" cols="50" required></textarea>
+
+  <br /><br />
+
+  <label for="public">Make list public:</label>
+  <input type="checkbox" name="public" id="public" />
+
+  <br /><br />
+
+  <button type="submit">Create List</button>
+</form>
+  <br />
+  <a href="/lists">Back to all lists</a>
+  </body>
 </html>

@@ -50,6 +50,9 @@
           Add to Favorites
         </button>
       </form>
+
+      <a href="/lists/new?addMovie=<%= movie.id %>">Add to List</a>
+
       <% } else { %>
       <p style="color: red; margin-top: 10px">Log in to add to favorites</p>
       <% } %>
@@ -64,6 +67,7 @@
       >Previous</a
     >
     <% } %>
+
     <span>Page <%= currentPage %> of <%= totalPages %></span>
     <% if (currentPage < totalPages) { %>
     <a
