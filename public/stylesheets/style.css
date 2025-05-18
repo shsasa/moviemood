@@ -1,0 +1,142 @@
+ body {
+  margin: 0;
+  background-color: #10002b;
+  color: white;
+  font-family: "Arial", sans-serif;
+ }
+
+nav {
+  background-color: #230046;
+   padding: 1rem 2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   
+}
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-right: 1rem;
+  font-weight:bold;
+  
+}
+
+.nav-right img{
+  width: 40px;
+  height:40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.nav-left{
+  display:flex;
+  align-items: center;
+}
+.nav-right{
+  display:flex;
+  align-items: center;
+}
+
+.nav-right span{
+  margin-right: 1rem;
+  font-weight: bold;
+ 
+}
+
+nav a:hover{
+  text-decoration: underline;
+}
+
+/* //sign in part */
+.auth-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  background-color:#230046;
+  padding: 2rem; 
+   border-radius: 10px;
+}
+
+.auth-container button{
+  padding: 0.5rem;
+  background-color:#ffffff;
+  color:#230046;
+  border:none;
+  border-radius: 25px;
+  font-weight:bold;
+  margin:  auto;
+
+ 
+}
+.auth-container form{
+  /* text-align: center; */
+  display: flex;
+  flex-direction:  column;
+}
+.auth-container h1{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-container label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.auth-container input{
+ margin-bottom: 1rem;
+ padding: 0.7rem;
+ border:none;
+ border-radius: 5px;
+ background-color:#1a0033 ;
+ color:white;
+ font-size:16px;
+
+}
+
+.auth-container p {
+  text-align: center;
+  
+}
+.auth-container a{
+  color: white;
+  text-align: center;
+ 
+}
+.auth-container h2{
+  text-align: center;
+}
+
+/* //users show page */
+.profile-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  background-color: #230046;
+  padding: 2rem;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+.profile-container h1{
+  margin-bottom: 2rem;
+}
+.profile-details img {
+   width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-top: 1rem;
+}
+
+.profile-container a {
+    display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: #46007c;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
