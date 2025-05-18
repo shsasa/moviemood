@@ -107,3 +107,36 @@ nav a:hover{
 .auth-container h2{
   text-align: center;
 }
+
+/* //users show page */
+.profile-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  background-color: #230046;
+  padding: 2rem;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+.profile-container h1{
+  margin-bottom: 2rem;
+}
+.profile-details img {
+   width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-top: 1rem;
+}
+
+.profile-container a {
+    display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: #46007c;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}

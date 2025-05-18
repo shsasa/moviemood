@@ -1,14 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile | MovieMood</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 <body>
-  <!-- <%- include('../partials/_navbar.ejs') %> -->
+  <%- include('../partials/_navbar.ejs') %>
+  <div class="profile-container">
 <h1><%= userprofile.username %>'s Profile</h1>
-<p>Email:<%= userprofile.email %></p>
+<div class="profile-details">
+<p><strong>Email:</strong><%= userprofile.email %></p>
 <% if(userprofile.image) { %>
-  <img src="<%= userprofile.image %>" alt="Profile Picture" width="200" />
+  <img src="<%= userprofile.image %>" alt="Profile Picture" />
   <% }else { %>
   <p>No profile image set.</p>
 
 <% } %>
-<br />
+</div>
   <!-- <a href="/users">Back to All Users</a> -->
    <a href="/">Back to Home</a>
+   </div>
 </body>
+</html>
