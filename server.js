@@ -44,10 +44,11 @@ app.use(passUserToView)
 const authController = require('./controllers/auth')
 const usersController = require('./controllers/users')
 const moviesController = require('./controllers/movies')
+const reviewsController = require("./controllers/reviews")
 app.use('/auth', authController)
 app.use('/users', usersController)
 app.use('/movies', moviesController)
-
+app.use("/reviews", reviewsController)
 //GET METHOD
 app.get('/', async (req, res) => {
   res.render('index.ejs')

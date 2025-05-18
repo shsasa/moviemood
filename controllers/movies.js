@@ -6,7 +6,7 @@ const Movie = require('../models/movie')
 
 const axios = require('axios')
 const User = require('../models/user')
-
+const Review= require('../models/review')
 router.get('/', async (req, res) => {
   try {
     const movies = await Movie.find()
@@ -59,7 +59,7 @@ router.get('/:id', async (req, res) => {
       apiId: movieId,
       poster_path: movie.poster_path
     })
-
+const reviews = await Review.find({movie: existingMovie._id}).populate('user')
     if (req.session.user) {
       const user = await User.findById(req.session.user._id)
       // check if the movie is in the user's favorite movies
@@ -69,9 +69,9 @@ router.get('/:id', async (req, res) => {
       )
       console.log('isFavorite')
       console.log(isFavorite)
-      res.render('movies/show.ejs', { movie, isFavorite: isFavorite, trailerKey })
+      res.render('movies/show.ejs', { movie, isFavorite: isFavorite, trailerKey,reviews })
     } else {
-      res.render('movies/show.ejs', { movie, isFavorite: false, trailerKey })
+      res.render('movies/show.ejs', { movie, isFavorite: false, trailerKey,reviews })
     }
   } catch (err) {
     console.log(err)
