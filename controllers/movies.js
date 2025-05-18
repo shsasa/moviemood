@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     console.log(err)
     res.status(500).send('Internal Server Error')
   }
-}) 
+})
 
 // search movies
 router.get('/search', async (req, res) => {
@@ -48,7 +48,12 @@ router.get('/:id', async (req, res) => {
     )
     const movie = response.data
     // check if the movie is already in the database
-
+    const trailerResponse = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`
+    )
+    const trailers = trailerResponse.data.results
+    const trailer = trailers.find((video) => video.type === 'Trailer' && video.site === 'YouTube')
+    const trailerKey = trailer ? trailer.key : null
     const existingMovie = await Movie.findOrCreate({
       title: movie.title,
       apiId: movieId,
@@ -64,9 +69,9 @@ router.get('/:id', async (req, res) => {
       )
       console.log('isFavorite')
       console.log(isFavorite)
-      res.render('movies/show.ejs', { movie, isFavorite: isFavorite })
+      res.render('movies/show.ejs', { movie, isFavorite: isFavorite, trailerKey })
     } else {
-      res.render('movies/show.ejs', { movie, isFavorite: false })
+      res.render('movies/show.ejs', { movie, isFavorite: false, trailerKey })
     }
   } catch (err) {
     console.log(err)

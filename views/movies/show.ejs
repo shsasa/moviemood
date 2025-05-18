@@ -31,39 +31,54 @@
         <%= movie.original_language %>
       </p>
     </div>
-    <% if (user) { %>
 
+    <% if (trailerKey) { %>
       <div style="margin-top: 20px; text-align: center">
-        <% if (isFavorite) { %>
-          <!-- Remove from Favorites -->
-          <form action="/favorites/<%= movie.id %>/?_method=DELETE" method="post">
-            <button type="submit" style="
+        <h2>Watch Trailer</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= trailerKey %>"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <% } else { %>
+        <p style="text-align: center; margin-top: 20px;">No trailer available</p>
+        <% } %>
+
+
+
+          <% if (user) { %>
+
+            <div style="margin-top: 20px; text-align: center">
+              <% if (isFavorite) { %>
+                <!-- Remove from Favorites -->
+                <form action="/favorites/<%= movie.id %>/?_method=DELETE" method="post">
+                  <button type="submit" style="
           padding: 10px 20px;
           background-color: red;
           color: white;
           border: none;
           cursor: pointer;
         ">
-              Remove from Favorites
-            </button>
-          </form>
-          <% } else { %>
-            <!-- Add to Favorites -->
-            <form action="/favorites/" method="post">
-              <input type="hidden" name="title" value="<%= movie.title %>" />
-              <input type="hidden" name="apiId" value="<%= movie.id %>" />
-              <input type="hidden" name="poster_path" value="<%= movie.poster_path %>" />
-              <button type="submit" style="
+                    Remove from Favorites
+                  </button>
+                </form>
+                <% } else { %>
+                  <!-- Add to Favorites -->
+                  <form action="/favorites/" method="post">
+                    <input type="hidden" name="title" value="<%= movie.title %>" />
+                    <input type="hidden" name="apiId" value="<%= movie.id %>" />
+                    <input type="hidden" name="poster_path" value="<%= movie.poster_path %>" />
+                    <button type="submit" style="
           padding: 10px 20px;
           background-color: green;
           color: white;
           border: none;
           cursor: pointer;
         ">
-                Add to Favorites
-              </button>
-            </form>
-            <% } %>
-              <% } %>
-      </div>
+                      Add to Favorites
+                    </button>
+                  </form>
+                  <% } %>
+                    <% } %>
+            </div>
 </body>
