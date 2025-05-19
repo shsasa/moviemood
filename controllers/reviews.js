@@ -54,5 +54,26 @@ router.put("/:reviewId", isSignedIn, async (req,res)=>{
 console.error(error)
   }
 })
+
+router.delete("/:reviewId", isSignedIn, async (req,res)=>{
+  const {reviewId} = req.params;
+  try {
+    const review = await Review.findById(reviewId)
+    if(!review) return res.status(404).send("Review not found")
+
+     if (review.user.toString() !== req.session.user._id.toString()) {
+        return res.status(403).send("Not authorized")
+  }
+  const movie = await Movie.findById(review.movie)
+  await Review.findByIdAndDelete(reviewId)
+  res.redirect(`/movies/${movie.apiId}`)
+}catch (error){
+  console.error(error)
+  res.status(500).send("Internal Server Error")
+}
+})
+
+
+
 module.exports= router;
 

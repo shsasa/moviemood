@@ -90,6 +90,13 @@
   <p><strong><%= review.user.username %>:</strong></p>
   <p><%= review.rating %>/5</p>
   <p><%= review.comment %></p>
+   <% if (user && review.user._id.toString() === user._id.toString()) { %>
+        <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+          <button type="submit" onclick="return confirm('Are you sure you want to delete your review?')">
+            Delete
+          </button>
+        </form>
+ <% } %>
 </div>
     <%  }) %>
     <% } else { %>
