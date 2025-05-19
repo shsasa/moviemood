@@ -13,44 +13,23 @@
         text-align: center;
       "
     >
-      <h2><%= movie.title %></h2>
-      <% if (movie.poster_path) { %>
-      <img
-        src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
-        alt="<%= movie.title %>"
-        style="width: 100%"
-      />
+      <a href="/movies/<%= movie.id %>">
+        <h2><%= movie.title %></h2>
+        <% if (movie.poster_path) { %>
+        <img
+          src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
+          alt="<%= movie.title %>"
+          style="width: 100%"
+      /></a>
       <% } else { %>
       <p>No poster available</p>
       <% } %>
-      <p><strong>Overview:</strong> <%= movie.overview %></p>
-      <p><strong>Release Date:</strong> <%= movie.release_date %></p>
       <p>
         <strong>Rating:</strong> <%= movie.vote_average %> (Votes: <%=
         movie.vote_count %>)
       </p>
-      <p><strong>Popularity:</strong> <%= movie.popularity %></p>
-      <p><strong>Language:</strong> <%= movie.original_language %></p>
-
-      <% if (user) { %>
-
-      <form
-        action="/movies/add-favorites"
-        method="post"
-        style="margin-top: 10px"
-      >
-        <input type="hidden" name="title" value="<%= movie.title %>" />
-        <input type="hidden" name="apiId" value="<%= movie.id %>" />
-        <input
-          type="hidden"
-          name="poster_path"
-          value="<%= movie.poster_path %>"
-        />
-        <button type="submit" style="padding: 5px 10px">
-          Add to Favorites
-        </button>
-      </form>
-
+      
+      
       <% 
       // if a list id exists, that means its editing an existing list.
       // we add the movie to the list using its id
@@ -67,6 +46,7 @@
       <% } else { %>
       <p style="color: red; margin-top: 10px">Log in to add to favorites</p>
       <% } %>
+
     </div>
     <% }) %>
   </div>

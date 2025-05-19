@@ -44,32 +44,40 @@ router.get('/search', async (req, res) => {
   }
 })
 
-// add movie to favorites
-router.post('/add-favorites', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const { title, apiId, poster_path } = req.body
-    const movie = await Movie.create({ title, apiId, poster_path })
-    // add the movie to the user favorites
-    // Assuming you have a user session and a User model
-    await User.findByIdAndUpdate(req.session.user._id, {
-      $push: { favorites: movie._id }
+    // get movies from the api
+    const movieId = req.params.id
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
+    )
+    const movie = response.data
+    // check if the movie is already in the database
+    const trailerResponse = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`
+    )
+    const trailers = trailerResponse.data.results
+    const trailer = trailers.find((video) => video.type === 'Trailer' && video.site === 'YouTube')
+    const trailerKey = trailer ? trailer.key : null
+    const existingMovie = await Movie.findOrCreate({
+      title: movie.title,
+      apiId: movieId,
+      poster_path: movie.poster_path
     })
 
-    res.redirect('/movies')
-  } catch (err) {
-    console.log(err)
-    res.status(500).send('Internal Server Error')
-  }
-})
-
-// delete movie from favorites
-router.delete('/delete-favorites/:id', async (req, res) => {
-  try {
-    const { title, apiId, poster_path } = req.body
-    console.log(req.session.user)
-    const user = await User.findById(req.session.user._id, {
-      $pull: { favorites: movie._id }
-    })
+    if (req.session.user) {
+      const user = await User.findById(req.session.user._id)
+      // check if the movie is in the user's favorite movies
+      const isFavorite = user.favoriteMovies.some(
+        (favoriteMovie) =>
+          favoriteMovie.toString() === existingMovie._id.toString()
+      )
+      console.log('isFavorite')
+      console.log(isFavorite)
+      res.render('movies/show.ejs', { movie, isFavorite: isFavorite, trailerKey })
+    } else {
+      res.render('movies/show.ejs', { movie, isFavorite: false, trailerKey })
+    }
   } catch (err) {
     console.log(err)
     res.status(500).send('Internal Server Error')

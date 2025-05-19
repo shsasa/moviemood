@@ -59,7 +59,8 @@ router.post('/sign-in', async (req, res) => {
     
     req.session.user = {
       username: userInDatabase.username,
-      _id: userInDatabase._id
+      _id: userInDatabase._id,
+      image: userInDatabase.image
     }
     req.session.message = 'User logged in successfully'
     res.redirect('/')

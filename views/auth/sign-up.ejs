@@ -1,26 +1,32 @@
-<h1>Create a new account</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up | MovieMood</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+<%- include('../partials/_navbar.ejs') %>
+<div class="auth-container">
+<h2>Create new Account</h2>
 
 <form method="POST" action="/auth/sign-up">
   <label for="username">Username</label>
   <input type="text" name="username" id="username" />
 
-  <br />
-
-  
   <label for="email">Email</label>
   <input type="email" name="email" id="email" required />
-  <br/>
+<!--  
 <label for="image">Profile Image URL</label>
-<input type="text" name="image" id="image" placeholder="Paste image here" />
-<br/>
+<input type="text" name="image" id="image" placeholder="Paste image here" /> -->
+
 <label for="password">Password</label>
   <input type="password" name="password" id="password" />
-
-  <br />
   <label for="confirmPassword">Confirm Password</label>
   <input type="password" name="confirmPassword" id="confirmPassword" />
-
-  <br />
-
   <button type="submit">Sign up</button>
 </form>
+<p>Already have an account? <a href="/auth/sign-in">Sign in here</a></p>
+</div>
+</body>
+</html>

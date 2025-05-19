@@ -1,16 +1,15 @@
 <body>
   <%- include('../partials/_navbar.ejs') %>
 
-  <h1><%= userprofile.username %>'s Profile</h1>
+  
 
-  <h2>Recipes:</h2>
-  <ul>
-    <% recipes.forEach(recipe => { %>
+
+  <h1>All Users</h1>
+<ul>
+  <% users.forEach(user => { %>
     <li>
-      <a href="/recipes/<%= recipe._id %>"><%= recipe.name %></a>
+      <a href="/users/<%= user._id %>"><%= user.username %></a>
     </li>
-    <% }) %>
-  </ul>
-
-  <a href="/users">Back to All Users</a>
+  <% }) %>
+</ul>
 </body>
