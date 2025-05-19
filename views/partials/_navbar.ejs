@@ -24,6 +24,7 @@
     <div class="nav-right">
       <% if (user) { %>
         <span>Hi <%= user.username %></span>
+ <a href="/lists">View my lists</a>
         <a href="/users/<%= user._id %>/edit">Edit Profile</a>
         <a href="/auth/sign-out">Sign out</a>
          <a href="/users/<%= user._id %>/edit">
