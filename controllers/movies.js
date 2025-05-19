@@ -9,6 +9,9 @@ const User = require('../models/user')
 const Review= require('../models/review')
 router.get('/', async (req, res) => {
   try {
+    // Clear selectedMovies from session
+    req.session.selectedMovies = []
+
     const movies = await Movie.find()
     res.render('movies/index.ejs', { movies })
   } catch (err) {
@@ -22,6 +25,7 @@ router.get('/search', async (req, res) => {
   try {
     const searchTerm = req.query.searchTerm
     const page = req.query.page || 1 // Default to page 1 if no page is specified
+
     const response = await axios.get(
       `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}&page=${page}`
     )
@@ -31,7 +35,8 @@ router.get('/search', async (req, res) => {
       movies,
       searchTerm,
       currentPage: page,
-      totalPages
+      totalPages,
+      listId: req.query.listId || null
     })
   } catch (err) {
     console.log(err)

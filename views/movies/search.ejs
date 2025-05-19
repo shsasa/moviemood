@@ -1,6 +1,6 @@
 <body>
-  <h1>Search Results for "<%= searchTerm %>"</h1>
   <%- include('../partials/_navbar.ejs') %>
+    <div class="page-title">Search Results for "<%= searchTerm %>"</div>
 
   <h2>Page <%= currentPage %> of <%= totalPages %></h2>
   <div style="display: flex; flex-wrap: wrap; gap: 20px">
@@ -28,23 +28,53 @@
         <strong>Rating:</strong> <%= movie.vote_average %> (Votes: <%=
         movie.vote_count %>)
       </p>
-    </div>
-    <% }) %>
-  </div>
+    
+      <% if (user) { %>
+        <%  // if a list id exists, that means its editing an existing list.
+      // we add the movie to the list using its id
+      // if there's no listId, means that the user creating a new list
+      // so this will add the movie during the new list creation
+      const addToListUrl = listId ? `/lists/${listId}/edit?addMovie=${movie.id}` 
+      : `/lists/new?addMovie=${movie.id}` %>
 
-  <div style="margin-top: 20px; text-align: center">
-    <% if (currentPage > 1) { %>
-    <a
-      href="/movies/search?searchTerm=<%= searchTerm %>&page=<%= currentPage - 1 %>"
-      >Previous</a
-    >
-    <% } %>
-    <span>Page <%= currentPage %> of <%= totalPages %></span>
-    <% if (currentPage < totalPages) { %>
-    <a
-      href="/movies/search?searchTerm=<%= searchTerm %>&page=<%= parseInt(currentPage) + 1 %>"
-      >Next</a
-    >
-    <% } %>
-  </div>
+      <!-- link to that will let the user add this movie to a list. -->
+      
+      <a href="<%= addToListUrl %>">Add to List</a>
+      
+      <% } %>
+      <% }) %>
+
+    </div>
+
+    <div div class='movies-list'>
+      <% movies.forEach(movie=> { %>
+        <div class="movie-card">
+          <a href="/movies/<%= movie.id %>">
+            <div class="movie-card-title">
+              <%= movie.title %>
+            </div>
+            <% if (movie.poster_path) { %>
+              <img src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>" alt="<%= movie.title %>" />
+          </a>
+          <% } else { %>
+            <p>No poster available</p>
+            <% } %>
+              <p>
+                <strong>Rating:</strong>
+                <%= movie.vote_average %> (Votes: <%= movie.vote_count %>)
+              </p>
+        </div>
+        <% }) %>
+    </div>
+
+    <div class="page-number">
+      <% if (currentPage> 1) { %>
+        <a href="/movies/search?searchTerm=<%= searchTerm %>&page=<%= currentPage - 1 %>">Previous</a>
+        <% } %>
+          <span>Page <%= currentPage %> of <%= totalPages %></span>
+          <% if (currentPage < totalPages) { %>
+            <a href="/movies/search?searchTerm=<%= searchTerm %>&page=<%= parseInt(currentPage) + 1 %>">Next</a>
+            <% } %>
+    </div>
 </body>
+
