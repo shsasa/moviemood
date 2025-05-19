@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>User Profile | MovieMood</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <div class="profile-container">
-<h1><%= userprofile.username %>'s Profile</h1>
-<div class="profile-details">
-<p><strong>Email:</strong><%= userprofile.email %></p>
-<% if(userprofile.image) { %>
-  <img src="<%= userprofile.image %>" alt="Profile Picture" />
-  <% }else { %>
-  <p>No profile image set.</p>
+    <div class="profile-container">
+      <h1>
+        <%= userprofile.username %>'s Profile
+      </h1>
+      <div class="profile-details">
 
-<% } %>
-</div>
-  <!-- <a href="/users">Back to All Users</a> -->
-   <a href="/">Back to Home</a>
-   </div>
+        <% if (user._id === userprofile._id) { %>
+
+          <p><strong>Email:</strong>
+            <%= userprofile.email %>
+          </p>
+
+          <% } %>
+            <% if(userprofile.image) { %>
+              <img src="<%= userprofile.image %>" alt="Profile Picture" />
+              <% }else { %>
+                <p>No profile image set.</p>
+
+                <% } %>
+      </div>
+
+      <h2>user Lists</h2>
+      <ul>
+        <% lists.forEach(list=> { %>
+          <li>
+            <a href="/lists/<%= list._id %>">
+              <h3>
+                <%= list.title %>
+              </h3>
+            </a>
+            <p>
+              <%= list.description %>
+            </p>
+          </li>
+          <% }) %>
+            <!-- <a href="/users">Back to All Users</a> -->
+            <a href="/">Back to Home</a>
+    </div>
 </body>
+
 </html>
