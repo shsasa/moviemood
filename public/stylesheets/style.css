@@ -140,3 +140,18 @@ nav a:hover{
   border-radius: 8px;
   font-weight: bold;
 }
+
+.review-section {
+  margin-top: 10px;
+  text-align:center;
+}
+.review-box {
+  border: 1px solid #ccc;
+  padding:10px;
+  margin:10px auto;
+  width: 60%;
+}
+.review-form {
+  margin-top: 30px;
+  text-align: center;
+}

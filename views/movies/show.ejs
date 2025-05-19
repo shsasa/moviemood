@@ -97,23 +97,24 @@
     <p>No reviews yet. Be the first to write one!</p>
 
     <% } %>
-    <!-- Add a review -->
+    <!-- Add or Update review -->
      <% if (user){ %>
       <div class="review-form">
-        <h3>Leave a Review</h3>
+        <h3><%= userReview ? "Update Your Review" :"Leave a Review"%></h3>
         <form action="/reviews" method="POST">
           <input type="hidden" name="movieId" value="<%=movie.id %>">
 <label for ="rating">Rating:</label>
 <select name ="rating" id="rating" required>
+  <option value="" disabled selected>Choose a rating</option>
   <% for (let i =1;i <=5; i++){ %>
-  <option value="<% i %>"><%= i %></option>
+  <option value="<%= i %>"><%= i %></option>
     <%} %>
 </select>
 <br /> <br />
 <label for="comment">Comment:</label><br/>
-<textarea name="comment" id="comment" rows="4" cols="100"></textarea>
+<textarea name="comment" id="comment" rows="4" cols="100" required><%= userReview ? userReview.comment : "" %></textarea>
 <br /> <br />
-<button type="submit">Submit Review</button>
+<button type="submit"><%= userReview ? "Update Review" : "Submit Review" %></button>
         </form>
       </div>
 

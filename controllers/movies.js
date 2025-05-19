@@ -60,7 +60,9 @@ router.get('/:id', async (req, res) => {
       poster_path: movie.poster_path
     })
 const reviews = await Review.find({movie: existingMovie._id}).populate('user')
+let userReview = null;
     if (req.session.user) {
+      userReview = reviews.find(r => r.user._id.toString()=== req.session.user._id.toString())
       const user = await User.findById(req.session.user._id)
       // check if the movie is in the user's favorite movies
       const isFavorite = user.favoriteMovies.some(
@@ -69,7 +71,7 @@ const reviews = await Review.find({movie: existingMovie._id}).populate('user')
       )
       console.log('isFavorite')
       console.log(isFavorite)
-      res.render('movies/show.ejs', { movie, isFavorite: isFavorite, trailerKey,reviews })
+      res.render('movies/show.ejs', { movie, isFavorite: isFavorite, trailerKey,reviews,userReview, })
     } else {
       res.render('movies/show.ejs', { movie, isFavorite: false, trailerKey,reviews })
     }
