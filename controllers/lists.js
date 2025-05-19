@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 //new - form to create new list
 router.get('/new', async (req, res) => {
   // Initialize session selectedMovies if not already set
-  if (!req.session.selectedMovies) {req.session.selectedMovies = [] }
+  if (!req.session.selectedMovies) { req.session.selectedMovies = [] }
 
   // clear the session
   if (!req.query.addMovie) {
@@ -69,10 +69,12 @@ router.get('/new', async (req, res) => {
       const apiMovie = response.data
 
       // Save new movie in DB
-      movie = new Movie({
+
+
+      movie = await Movie.findOrCreate({
         title: apiMovie.title,
-        poster: apiMovie.poster_path,
-        apiId: apiMovie.id
+        apiId: apiMovie.id,
+        poster_path: apiMovie.poster_path
       })
 
       //.save() is mongoose method that store data permanently in the database
@@ -193,10 +195,10 @@ router.get('/:id/edit', async (req, res) => {
         const apiMovie = response.data
 
         //create new movie document with data from API
-        movie = new Movie({
+        movie = await Movie.findOrCreate({
           title: apiMovie.title,
-          poster: apiMovie.poster_path,
-          apiId: apiMovie.id
+          apiId: apiMovie.id,
+          poster_path: apiMovie.poster_path
         })
         await movie.save() //save new movie to DB
       }
