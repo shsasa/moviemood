@@ -28,6 +28,25 @@
         <strong>Rating:</strong> <%= movie.vote_average %> (Votes: <%=
         movie.vote_count %>)
       </p>
+      
+      
+      <% 
+      // if a list id exists, that means its editing an existing list.
+      // we add the movie to the list using its id
+      // if there's no listId, means that the user creating a new list
+      // so this will add the movie during the new list creation
+      const addToListUrl = listId ? `/lists/${listId}/edit?addMovie=${movie.id}` 
+      : `/lists/new?addMovie=${movie.id}` %>
+
+      <!-- link to that will let the user add this movie to a list. -->
+      
+      <a href="<%= addToListUrl %>">Add to List</a>
+      
+
+      <% } else { %>
+      <p style="color: red; margin-top: 10px">Log in to add to favorites</p>
+      <% } %>
+
     </div>
     <% }) %>
   </div>
@@ -39,6 +58,7 @@
       >Previous</a
     >
     <% } %>
+
     <span>Page <%= currentPage %> of <%= totalPages %></span>
     <% if (currentPage < totalPages) { %>
     <a

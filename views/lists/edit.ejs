@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('../partials/_navbar.ejs') %>
+    <title>Edit List</title>
+  </head>
+  <body>
+    <h1>Edit List</h1>
+
+    <!-- Search Bar -->
+    <form action="/movies/search" method="GET">
+      <input type="hidden" name="listId" value="<%= list._id %>" />
+      <input
+        type="text"
+        name="searchTerm"
+        placeholder="Search for a movie..."
+        required
+      />
+
+      <button type="submit">Search</button>
+    </form>
+    <h3>Selected Movies</h3>
+    <!-- if there are no movies in the list or the list is empty -->
+    <% if (!list.movies || list.movies.length === 0) { %>
+      <!-- show this message -->
+      <p>No movies selected yet. Use the search bar above to add.</p>
+    <% } else { %>
+      <!-- if there are movies in the list, display then in the list -->
+      <ul> <!-- loop through each movie in the list -->
+        <% list.movies.forEach(movie => { %>
+          <li>  
+            <!-- if the movie has a poster, show it -->
+            <% if (movie.poster) { %>
+              <img src="https://image.tmdb.org/t/p/w200<%= movie.poster %>" alt="<%= movie.title %>" width="100" />
+            <% } %>
+            <!-- show a checkbox for the movie (already selected) -->
+            <label>
+              <input type="checkbox" name="movies" value="<%= movie._id %>" checked />
+              <%= movie.title %> 
+              <!-- show the movie title next to the checkbox -->
+            </label>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+    
+
+    <!-- Edit form -->
+    <form action="/lists/<%= list._id %>?_method=PUT" method="POST">
+
+      <label for="title">List Name:</label>
+      <input
+        type="text"
+        name="title"
+        id="title"
+        value="<%= list.title %>"
+        required
+      />
+
+      <br /><br />
+
+      <label for="description">Description:</label><br />
+      <textarea name="description" id="description" rows="4" cols="50" required><%= list.description %></textarea>
+
+      <br /><br />
+
+      <label for="public">Make list public:</label>
+      <input
+        type="checkbox"
+        name="public"
+        id="public"
+        <%= list.public ? 'checked' : '' %>
+      />
+
+      <br /><br />
+
+      <button type="submit">Update List</button>
+    </form>
+
+    <br />
+    <a href="/lists">Back to all lists</a>
+  </body>
+</html>
