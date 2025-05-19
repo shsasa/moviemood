@@ -1,40 +1,31 @@
 <body>
-  <h1>My Favorite Movies</h1>
-  <%- include('../partials/_navbar.ejs') %> <% if (favoriteMovies.length > 0) {
-  %>
-  <div style="display: flex; flex-wrap: wrap; gap: 20px">
-    <% favoriteMovies.forEach(movie => { %>
-    <div
-      style="
-        border: 1px solid #ccc;
-        padding: 10px;
-        width: 200px;
-        text-align: center;
-      "
-    >
-      <a href="/movies/<%= movie.apiId %>">
-        <h2><%= movie.title %></h2>
-        <% if (movie.poster_path) { %>
-        <img
-          src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
-          alt="<%= movie.title %>"
-          style="width: 100%"
-        />
-      </a>
+  <%- include('../partials/_navbar.ejs') %>
+
+    <div class="page-title">My Favorite Movies</div>
+
+
+    <% if (favoriteMovies.length> 0) {
+      %>
+      <div class='movies-list'>
+        <% favoriteMovies.forEach(movie=> { %>
+          <div class="movie-card">
+            <a href="/movies/<%= movie.apiId %>">
+              <div class="movie-card-title">
+                <%= movie.title %>
+              </div>
+              <% if (movie.poster_path) { %>
+                <img src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>" alt="<%= movie.title %>" />
+            </a>
+            <% } else { %>
+              <p>No poster available</p>
+              <% } %>
+
+          </div>
+          <% }) %>
+      </div>
       <% } else { %>
-      <p>No poster available</p>
-      <% } %>
-      <p>
-        <strong>Overview:</strong> <%= movie.overview || 'No overview available'
-        %>
-      </p>
-      <p><strong>Release Date:</strong> <%= movie.release_date || 'N/A' %></p>
-    </div>
-    <% }) %>
-  </div>
-  <% } else { %>
-  <p style="text-align: center; margin-top: 20px">
-    You have no favorite movies yet.
-  </p>
-  <% } %>
+        <p style="text-align: center; margin-top: 20px">
+          You have no favorite movies yet.
+        </p>
+        <% } %>
 </body>
