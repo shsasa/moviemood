@@ -833,6 +833,46 @@ background: rgba(255, 255, 255, 0.05);
   text-decoration: none;
 }
 
+.favorite-movies-list{
+    display: grid;
+  grid-template-columns: repeat(5, 180px); 
+  column-gap: 4rem;      
+  row-gap: 2rem;       
+  justify-content: center; 
+  margin: 2rem auto;
+  max-width: 100%;
+}
+
+.favorite-page-title{
+  font-family: 'Poetsen One', sans-serif;
+  font-size: 4.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: white; 
+  text-align: center;
+}
+
+.favorites-background-lottie {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+
+  
+}
+
+.favorites-background-lottie iframe {
+  width: 400px;
+  height: 400px;
+  opacity: 0.8;
+}
 
 
 
