@@ -3,9 +3,7 @@
 
   <div class="movies-search-wrapper">
 
-    <div class="search-page-title">Search Results for "<%= searchTerm %>"</div>
-    <div class="search-page-number">
-  <h2>Page <%= currentPage %> of <%= totalPages %></h2>
+    <div class="search-page-title">Search Results for "<%= searchTerm%>"</div>
   </div>
 
   <div class="search-movie-list">
@@ -48,13 +46,16 @@
 
 
     <div class="search-pagination">
+      
+      <div class="search-page-number">
       <% if (currentPage> 1) { %>
         <a href="/movies/search?searchTerm=<%= searchTerm %>&page=<%= currentPage - 1 %>">Previous</a>
         <% } %>
-          <span>Page <%= currentPage %> of <%= totalPages %></span>
           <% if (currentPage < totalPages) { %>
             <a href="/movies/search?searchTerm=<%= searchTerm %>&page=<%= parseInt(currentPage) + 1 %>">Next</a>
             <% } %>
+              <h2>Page <%= currentPage %> of <%= totalPages %></h2> 
+            </div>
     </div>
     </div>
 </body>
