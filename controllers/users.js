@@ -3,6 +3,8 @@ const User = require('../models/user')
 const List = require('../models/list')
 const isSignedIn = require('../middleware/is-signed-in');
 const upload = require('../middleware/upload')
+const Review = require('../models/review')
+const Movie = require('../models/movie')
 
 router.get('/', async (req, res) => {
   const users = await User.find()
@@ -14,19 +16,40 @@ router.get('/:id', async (req, res) => {
 
   // find all user list and if the list is public
   const lists = await List.find({ user: req.params.id, public: true })
+  const reviews = await Review.find({ user: req.params.id }).populate('movie')
+  // Extract all movies from the reviews (removing duplicates)
+  const moviesInReviews = [
+    ...new Map(
+      reviews
+        .filter(r => r.movie)
+        .map(r => [r.movie._id.toString(), r.movie])
+    ).values()
+  ];
 
-  console.log("lists")
-  console.log(lists)
+  //add reviews to the moviesInReviews
+  moviesInReviews.forEach(movie => {
+    const review = reviews.find(r => r.movie._id.toString() === movie._id.toString())
+    if (review) {
+      movie.review = review
+    }
+  })
+
+
+
+
+  console.log("moviesInReviews")
+  console.log(moviesInReviews)
 
 
 
   console.log(user)
-  res.render('users/show.ejs', { userprofile: user, lists: lists })
+  res.render('users/show.ejs', { userprofile: user, lists: lists, reviews: moviesInReviews })
 })
 
 router.get("/:id/edit", isSignedIn, async (req, res) => {
   if (req.params.id !== req.session.user._id.toString()) { return res.send("Unauthorized") }
   const user = await User.findById(req.params.id)
+
   res.render("users/edit.ejs", { user })
 })
 
