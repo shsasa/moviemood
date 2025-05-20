@@ -8,7 +8,7 @@ const Movie = require('../models/movie')
 
 router.get('/', async (req, res) => {
   const users = await User.find()
-  res.render('users/index.ejs', { users })
+  res.render('users/index.ejs', {  user: req.session.user  })
 })
 
 router.get('/:id', async (req, res) => {
