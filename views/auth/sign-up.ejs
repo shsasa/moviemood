@@ -5,28 +5,30 @@
   <title>Sign Up | MovieMood</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body>
+<body class="signup-page">
 <%- include('../partials/_navbar.ejs') %>
+<div class="signup-right">
 <div class="auth-container">
-<h2>Create new Account</h2>
-
+<h2 class="new">Create new Account</h2>
+<p>Already have an account? <a href="/auth/sign-in">Sign in here</a></p>
 <form method="POST" action="/auth/sign-up">
-  <label for="username">Username</label>
+  <label for="username">Enter your Username</label>
   <input type="text" name="username" id="username" />
 
-  <label for="email">Email</label>
+  <label for="email">Enter your Email</label>
   <input type="email" name="email" id="email" required />
 <!--  
 <label for="image">Profile Image URL</label>
 <input type="text" name="image" id="image" placeholder="Paste image here" /> -->
 
-<label for="password">Password</label>
+<label for="password">Enter Your Password</label>
   <input type="password" name="password" id="password" />
   <label for="confirmPassword">Confirm Password</label>
   <input type="password" name="confirmPassword" id="confirmPassword" />
   <button type="submit">Sign up</button>
 </form>
-<p>Already have an account? <a href="/auth/sign-in">Sign in here</a></p>
+
+</div>
 </div>
 </body>
 </html>

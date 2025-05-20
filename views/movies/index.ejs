@@ -1,27 +1,32 @@
-<body>
+<body class="movies-index-page">
   <%- include('../partials/_navbar.ejs') %>
 
-    <div class="page-title">All Movies</div>
-
-    <form action="/movies/search" method="get" class="search-container">
-      <input type="text" name="searchTerm" placeholder="Search for a movie..." class='search-input' required />
-      <button type="submit" style="padding: 10px" class="search-button">Search</button>
-    </form>
-
-    <div class='movies-list'>
-      <% movies.forEach(movie=> { %>
-        <a href="/movies/<%= movie.apiId %>">
-          <div class="movie-card">
-            <div class="movie-card-title">
-              <%= movie.title %>
-            </div>
-            <% if (movie.poster_path) { %>
-              <img src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>" alt="<%= movie.title %>" />
-              <% } else { %>
-                <p>No poster available</p>
-                <% } %>
-          </div>
-        </a>
-        <% }) %>
+  <div class="movies-index-wrapper">
+<div class="page-title">All Movies</div>
+    <div class="movies-header">
+      <form action="/movies/search" method="get" class="search-container">
+        <input type="text" name="searchTerm" placeholder="Search for a movie..." class='search-input' required />
+        <button type="submit" style="padding: 10px" class="search-button">Search</button>
+      </form>
     </div>
+
+<div class='movies-list'>
+  <% movies.forEach(movie => { %>
+    <div class="movie-card">
+      <a href="/movies/<%= movie.apiId %>" class="movie-card-link">
+        <div class="movie-card-title">
+          <%= movie.title %>
+        </div>
+        <% if (movie.poster_path) { %>
+          <img src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>" alt="<%= movie.title %>" />
+        <% } else { %>
+          <p>No poster available</p>
+        <% } %>
+      </a>
+    </div>
+  <% }) %>
+</div>
+
+
+  </div> 
 </body>

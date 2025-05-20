@@ -6,6 +6,46 @@
   <title>User Profile | MovieMood</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+<body class="profile-page">
+  <%- include('../partials/_navbar.ejs') %>
+
+  <div class="profile-container">
+<h1><%= userprofile.username %>'s Profile</h1>
+
+<div class="profile-details">
+  <% if(userprofile.image) { %>
+  <img src="<%= userprofile.image %>" alt="Profile Picture" />
+  <% }else { %>
+  <p>No profile image set.</p>
+<% } %>
+  <p><strong>Username:</strong><%= userprofile.username %></p>
+  
+          <% if (user._id === userprofile._id) { %>
+
+<p><strong>Email:</strong><%= userprofile.email %></p>
+
+          <% } %>
+
+</div>
+  <!-- <a href="/users">Back to All Users</a> -->
+  
+   <h2>user Lists</h2>
+      <ul>
+        <% lists.forEach(list=> { %>
+          <li>
+            <a href="/lists/<%= list._id %>">
+              <h3>
+                <%= list.title %>
+              </h3>
+            </a>
+            <p>
+              <%= list.description %>
+            </p>
+          </li>
+          <% }) %>
+            <!-- <a href="/users">Back to All Users</a> -->
+  <a href="/">Back to Home</a>
+  </div>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>

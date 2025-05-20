@@ -1,82 +1,109 @@
- body {
+@import url('https://fonts.googleapis.com/css2?family=Honk:SHLN@40.8&family=Lora:ital,wght@0,400..700;1,400..700&family=Poetsen+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+html,
+body {
+  height: 100%;
   margin: 0;
+  padding: 0;
+}
+
+body {
   background-color: #10002b;
   color: white;
-  font-family: "Arial", sans-serif;
- }
+  font-family: 'Arial', sans-serif;
+}
 
 nav {
-  background-color: #230046;
-   padding: 1rem 2rem;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   flex-wrap: wrap;
-   
-}
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-right: 1rem;
-  font-weight:bold;
-  
+  background-color: transparent;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.nav-right img{
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right img {
   width: 40px;
-  height:40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 0.5rem;
 }
 
-.nav-left{
-  display:flex;
-  align-items: center;
-}
-.nav-right{
-  display:flex;
-  align-items: center;
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  transition: background-color 0.2s;
 }
 
-.nav-right span{
+.nav-right span {
   margin-right: 1rem;
   font-weight: bold;
- 
 }
 
-nav a:hover{
-  text-decoration: underline;
+nav a:hover {
+  text-decoration: none;
 }
 
-/* //sign in part */
+.logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+.brand-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.home-link {
+  border: 2px solid white;
+  border-radius: 999px;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+}
+
 .auth-container {
   max-width: 400px;
   margin: 4rem auto;
-  background-color:#230046;
-  padding: 2rem; 
-   border-radius: 10px;
+  background-color: #230046;
+  padding: 2rem;
+  border-radius: 10px;
 }
 
-.auth-container button{
+.auth-container button {
   padding: 0.5rem;
-  background-color:#ffffff;
-  color:#230046;
-  border:none;
+  background-color: #ffffff;
+  color: #230046;
+  border: none;
   border-radius: 25px;
-  font-weight:bold;
-  margin:  auto;
+  font-weight: bold;
+  margin: auto;
+}
 
- 
-}
-.auth-container form{
-  /* text-align: center; */
+.auth-container form {
   display: flex;
-  flex-direction:  column;
+  flex-direction: column;
 }
-.auth-container h1{
+
+.auth-container h1,
+.auth-container h2,
+.auth-container p {
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .auth-container label {
@@ -84,31 +111,21 @@ nav a:hover{
   font-weight: bold;
 }
 
-.auth-container input{
- margin-bottom: 1rem;
- padding: 0.7rem;
- border:none;
- border-radius: 5px;
- background-color:#1a0033 ;
- color:white;
- font-size:16px;
-
+.auth-container input {
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #1a0033;
+  color: white;
+  font-size: 16px;
 }
 
-.auth-container p {
-  text-align: center;
-  
-}
-.auth-container a{
+.auth-container a {
   color: white;
   text-align: center;
- 
-}
-.auth-container h2{
-  text-align: center;
 }
 
-/* //users show page */
 .profile-container {
   max-width: 500px;
   margin: 4rem auto;
@@ -118,11 +135,13 @@ nav a:hover{
   color: white;
   text-align: center;
 }
-.profile-container h1{
+
+.profile-container h1 {
   margin-bottom: 2rem;
 }
+
 .profile-details img {
-   width: 150px;
+  width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
@@ -131,7 +150,7 @@ nav a:hover{
 }
 
 .profile-container a {
-    display: inline-block;
+  display: inline-block;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   color: white;
@@ -166,44 +185,44 @@ nav a:hover{
   color: white;
   text-align: center;
 }
-.page-title{
+
+.page-title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   color: white;
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 2rem;
 }
 
-
-.search-button{
+.search-button {
   padding: 0.5rem;
-  background-color:#ffffff;
-  color:#230046;
-  border:none;
+  background-color: #ffffff;
+  color: #230046;
+  border: none;
   border-radius: 25px;
-  font-weight:bold;
+  font-weight: bold;
   margin: auto;
 }
-.search-button:hover{
+
+.search-button:hover {
   background-color: #46007c;
   color: white;
 }
 
-.search-container form{
+.search-container form {
   display: flex;
   flex-direction: column;
 }
-.search-input{
+
+.search-input {
   margin-bottom: 1rem;
   padding: 0.7rem;
-  border:none;
-  margin: 10px ;
+  border: none;
   border-radius: 5px;
-  background-color:#1a0033 ;
-  color:white;
-  font-size:16px;
-  
+  background-color: #1a0033;
+  color: white;
+  font-size: 16px;
+  margin: 10px;
 }
 
 .movies-list {
@@ -212,33 +231,594 @@ nav a:hover{
   justify-content: center;
   gap: 1rem;
 }
+
 .movie-card {
   background-color: #230046;
   border-radius: 10px;
   padding: 1rem;
   width: 200px;
   height: 400px;
-
   text-align: center;
   color: white;
 }
+
 .movie-card img {
   width: 100%;
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
 }
-.movie-card img:hover{
+
+.movie-card img:hover {
   transform: scale(1.05);
-  transition: transform 0.3s;}
+  transition: transform 0.3s;
+}
+
 .movie-card-title {
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
-.page-number{
+
+.page-number {
   text-align: center;
   margin: 2rem;
   font-size: 1.2rem;
+  color: white;
+}
+
+.index-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 4rem;
+  padding-right: 2rem;
+  background-image: url('https://i.imgur.com/mc2PmnY.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  font-family: 'Poetsen One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.index-page h1 {
+  font-family: 'Poetsen One', sans-serif;
+  font-size: 5.7rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.index-page h3 {
+  font-size: 1.5rem;
+  color: #f9fafb;
+  margin-top: 0;
+  font-family: Ubuntu, Lora, Helvetica, sans-serif;
+}
+
+.index-page p {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  max-width: 600px;
+  margin-top: 10px;
+  text-align: left;
+  font-family: Ubuntu, Helvetica, sans-serif;
+}
+
+.index-page .join-btn {
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: 2px solid white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  margin-top: 70px;
+}
+
+.index-page .join-btn:hover {
+  background-color: #fdde03;
+  transform: scale(1.05);
+}
+
+.index-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.index-left {
+  max-width: 600px;
+  text-align: left;
+}
+
+.movies-index-page {
+  background-image: url('https://i.imgur.com/T7fakyJ.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  box-sizing: border-box;
+}
+
+.movies-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-decoration: none;
+
+}
+
+
+.page-title {
+  font-family: 'Poetsen One', sans-serif;
+  font-size: 5.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: white;
+}
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: 320px;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #82739c;
+  color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.search-button {
+  padding: 0.7rem 1rem;
+  background-color: #ffffff;
+  color: #230046;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.search-button:hover {
+  background-color: #46007c;
+  color: white;
+}
+
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  row-gap: 3rem;
+  width: calc((180px * 5) + (1.5rem * 4));
+  margin-left: auto;
+}
+
+.movie-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 0.5rem;
+  width: 180px;
+  height: 230px;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.movie-card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.3rem;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+.movie-card a.movie-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.movie-card a.movie-card-link:hover {
+  text-decoration: none;
+  color: #46007c;
+}
+
+.signup-page {
+  background-image: url('https://i.imgur.com/ioAofpC.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #230046;
+}
+
+.signup-page p a {
+  color: #10002b;
+}
+
+h2.new {
+  font-size: 2.5rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: #230046;
+  margin-bottom: 1rem;
+}
+
+.signup-layout {
+  display: flex;
+  flex-grow: 1;
+  height: 100vh;
+  width: 100%;
+}
+
+.signup-right {
+  flex: 1;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+
+.auth-container {
+  margin: 4rem 10rem 5rem auto;
+  background-color: transparent;
+}
+
+body.signup-page .nav-right a {
+  color: #230046 !important;
+}
+
+body.signup-page .nav-right a:hover {
+  color: #46007c !important;
+}
+
+body.signup-page .nav-right .home-link {
+  border: 2px solid #230046;
+  border-radius: 999px;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  background-color: #f0f4ff;
+  color: #230046;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-family: 'Ubuntu', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+.signin-page {
+  background-image: url('https://i.imgur.com/ioAofpC.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #230046;
+  font-family: 'Lora', 'Helvetica', 'sans-serif';
+}
+
+.signin-page p a {
+  color: #10002b;
+}
+
+
+body.signin-page .nav-right {
+  display: none;
+}
+
+h1.new {
+  font-size: 2.2rem; 
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold; 
+  color: #230046; 
+  margin-bottom: 1rem;   
+}
+
+.profile-page {
+  background-image: url('https://i.imgur.com/ioAofpC.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #230046;
+  font-family: 'Lora', 'Helvetica', 'sans-serif';
+}
+
+.profile-container {
+  max-width: 500px;
+  margin: 4rem 15rem 5rem auto;
+  background-color: transparent; 
+  color: #230046;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.profile-container h1 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.profile-details p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.profile-details img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #230046;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(35, 0, 70, 0.7);
+}
+
+.profile-container a {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  color: #ffffff;
+  background-color: #46007c;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.profile-container a:hover {
+  background-color: #fdde03;
+  color: #10002b;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+body.profile-page .nav-right {
+    display: none;
+}
+
+body.edit-profile-page {
+background-image: url('https://i.imgur.com/ioAofpC.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #230046;
+  font-family: 'Lora', 'Helvetica', 'sans-serif';
+}
+
+.auth-container {
+  max-width: 500px;
+  margin: 4rem 10rem 5rem auto;
+  background-color: transparent; 
+  color: #230046;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.auth-container h2 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.auth-container label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #230046;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="file"] {
+  background-color: #f0f4ff; 
+  color: #230046; 
+  border-radius: 8px;   
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-family: 'Ubuntu', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.auth-container input[type="text"]:focus,
+.auth-container input[type="email"]:focus,
+.auth-container input[type="password"]:focus {
+  border-color: #7b4eff; 
+  box-shadow: 0 0 8px #7b4eff;
+  background-color: #e6ebff; 
+}
+
+
+.auth-container button {
+  padding: 0.7rem 1rem;
+  background-color: #ffffff;
+  color: #230046;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.auth-container button:hover {
+  background-color: #46007c;
+  color: white;
+}
+
+body.edit-profile-page .nav-right {
+    display: none;
+}
+
+.auth-container button {
+  background-color: #230046; 
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 999px;
+  cursor: pointer;
+  width: 100%; 
+  max-width: 300px;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.auth-container label {
+  font-size: 0.85rem;
+  font-weight: normal;    
+  letter-spacing: 1px; 
+  color: #230046;
+  margin-bottom: 0.3rem; 
+  display: block; 
+  text-align: left;
+}
+
+
+/* === Scoped styles for search.ejs only === */
+.movies-show-wrapper {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.search-page-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #ffd700;
+  margin-top: 1rem;
+}
+
+.search-page-number h2 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+.search-movies-list {
+ display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem auto;
+  max-width: 1400px;
+  padding: 0 1rem;
+}
+
+.search-movie-card {
+background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 0.5rem;
+  width: 180px;
+  height: 230px;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.search-movie-card:hover {
+  transform: scale(1.05);
+}
+
+.search-movie-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.search-movie-card-title h2 {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+.search-add-to-list {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #ffd700;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.search-pagination {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.search-pagination a {
+  color: #ffd700;
+  font-weight: bold;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.search-pagination span {
   color: white;
 }
 
