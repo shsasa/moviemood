@@ -1,12 +1,12 @@
 <body>
   <%- include('../partials/_navbar.ejs') %>
 
-    <div class="page-title">My Favorite Movies</div>
+    <div class="favorite-page-title">My Favorite Movies</div>
 
 
     <% if (favoriteMovies.length> 0) {
       %>
-      <div class='movies-list'>
+      <div class='favorite-movies-list'>
         <% favoriteMovies.forEach(movie=> { %>
           <div class="movie-card">
             <a href="/movies/<%= movie.apiId %>">
@@ -28,4 +28,11 @@
           You have no favorite movies yet.
         </p>
         <% } %>
+
+        <div class="favorites-background-lottie">
+  <iframe src="https://lottie.host/embed/fba2bbbb-194c-4a16-84b7-03bcf2a51255/P9akFngx47.lottie"
+    allowfullscreen
+    style="border: none;">
+  </iframe>
+</div>
 </body>
