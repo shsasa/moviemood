@@ -15,31 +15,39 @@
 
   <nav class="navbar">
     <div class="nav-left">
-      <a href="/">Home</a>
+    <a href="/">
+    <iframe src="https://lottie.host/embed/4ecc969c-08e7-41e1-8c79-a1d6bcc39603/xR63120Te7.lottie" 
+          style="width: 50px; height: 50px; border: none;" 
+          allowfullscreen>
+  </iframe>
+      <span class="brand-name">MovieMood</span>
+    </a>
+    </div>
+<div class="nav-right">
+      <a href="/" class="home-link">Home</a>
       <a href="/movies">Movies</a>
       <% if (user) { %>
         <a href="/favorites">Favorites</a>
         <% } %>
-    </div>
-    <div class="nav-right">
+    
       <% if (user) { %>
-        <span>Hi <%= user.username %></span>
- <a href="/lists">View my lists</a>
+        <!-- <span>Hi <%= user.username %></span> -->
+<a href="/lists">View my lists</a>
         <a href="/users/<%= user._id %>/edit">Edit Profile</a>
         <a href="/auth/sign-out">Sign out</a>
-         <a href="/users/<%= user._id %>/edit">
+      <a href="/users/<%= user._id %>">
   <img src="<%= user.image || 'https://i.imgur.com/dM7Thhn.png' %>" alt="Profile Image" width="100" />
 </a>
 
       </a>
         <% } else { %>
 
-          <span>Welcome, guest.</span>
+          <!-- <span>Welcome, guest.</span> -->
           <a href="/auth/sign-up">Sign up</a>
           <a href="/auth/sign-in">Sign in</a>
 
           <% } %>
-
+</div>
   </nav>
 
 </body>

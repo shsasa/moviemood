@@ -5,21 +5,23 @@
   <title>User Profile | MovieMood</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body>
+<body class="profile-page">
   <%- include('../partials/_navbar.ejs') %>
+
   <div class="profile-container">
 <h1><%= userprofile.username %>'s Profile</h1>
+
 <div class="profile-details">
-<p><strong>Email:</strong><%= userprofile.email %></p>
-<% if(userprofile.image) { %>
+  <% if(userprofile.image) { %>
   <img src="<%= userprofile.image %>" alt="Profile Picture" />
   <% }else { %>
   <p>No profile image set.</p>
-
 <% } %>
+  <p><strong>Username:</strong><%= userprofile.username %></p>
+<p><strong>Email:</strong><%= userprofile.email %></p>
 </div>
   <!-- <a href="/users">Back to All Users</a> -->
-   <a href="/">Back to Home</a>
-   </div>
+  <a href="/">Back to Home</a>
+  </div>
 </body>
 </html>

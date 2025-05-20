@@ -5,11 +5,17 @@
   <title>Edit Profile | MovieMood</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body>
+<body class="edit-profile-page">
 <%- include('../partials/_navbar.ejs') %>
 <div class="auth-container">
 <h2>Edit Your Profile</h2>
-
+<div class="profile-details">
+  <% if(user.image) { %>
+  <img src="<%= user.image %>" alt="Profile Picture" />
+  <% }else { %>
+  <p>No profile image set.</p>
+<% } %>
+</div>
 <form action="/users/<%= user._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
 <label for="username">Username:</label>

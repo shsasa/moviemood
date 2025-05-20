@@ -3,9 +3,10 @@
   <title>Sign In</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body>    
+<body class="signin-page">
+  <%- include('../partials/_navbar.ejs') %>    
 <div class="auth-container">
-  <h1>Sign In to MovieMood</h1>
+  <h1 class="new">Sign In to Movie Mood</h1>
 <form action="/auth/sign-in" method="POST">
   <label for="username">Username</label>
   <input type="text" name="username" id="username" />
