@@ -90,6 +90,13 @@
   <p><strong><%= review.user.username %>:</strong></p>
   <p><%= review.rating %>/5</p>
   <p><%= review.comment %></p>
+   <% if (user && review.user._id.toString() === user._id.toString()) { %>
+        <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+          <button type="submit" onclick="return confirm('Are you sure you want to delete your review?')">
+            Delete
+          </button>
+        </form>
+ <% } %>
 </div>
     <%  }) %>
     <% } else { %>
@@ -101,7 +108,7 @@
      <% if (user){ %>
       <div class="review-form">
         <h3><%= userReview ? "Update Your Review" :"Leave a Review"%></h3>
-        <form action="/reviews" method="POST">
+        <form action="<%= userReview ? `/reviews/${userReview._id}?_method=PUT` : '/reviews' %>" method="POST">
           <input type="hidden" name="movieId" value="<%=movie.id %>">
 <label for ="rating">Rating:</label>
 <select name ="rating" id="rating" required>
