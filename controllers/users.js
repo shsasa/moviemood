@@ -39,11 +39,11 @@ router.get('/:id', async (req, res) => {
 
   console.log("moviesInReviews")
   console.log(moviesInReviews)
-
-
+// check if the user is signed in and if the user is the same as the user in the url
+const isSignedInUser = req.session.user && req.session.user._id.toString() === user._id.toString()
 
   console.log(user)
-  res.render('users/show.ejs', { userprofile: user, lists: lists, reviews: moviesInReviews })
+  res.render('users/show.ejs', { userprofile: user, lists: lists, reviews: moviesInReviews , isSignedInUser })
 })
 
 router.get("/:id/edit", isSignedIn, async (req, res) => {

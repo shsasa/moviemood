@@ -25,11 +25,14 @@
                 <%= userprofile.username %>
               </p>
 
-              <% if (user._id===userprofile._id) { %>
+              <% if (isSignedInUser) { %>
 
                 <p><strong>Email:</strong>
                   <%= userprofile.email %>
                 </p>
+
+                <a href="/users/<%= userprofile._id %>/edit">Edit Profile</a>
+
 
                 <% } %>
 
