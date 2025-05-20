@@ -6,25 +6,28 @@
     <title><%= list.title %> - Movie List</title>
     <%- include('../partials/_navbar.ejs') %>
   </head>
-  <body>
+  <body class="lists-show-page">
+    <div class="list-show-container">
+        <!-- show the username of the owner of the list -->
+    <p>Created by: <%= list.user.username %></p>
     <h1><%= list.title %></h1>
 
     <!-- show the description of the list -->
     <p>Description: <%= list.description %></p>
     <!-- show wether the list is public or private (ternary operator) -->
     <p>Status: <%= list.public ? 'Public' : 'Private' %></p>
-    <!-- show the username of the owner of the list -->
-    <p>Created by: <%= list.user.username %></p>
+  
 
     <h2>Movies in this list:</h2>
     <!-- if there are no movies in the list, show a message -->
     <% if (list.movies.length === 0) { %>
     <p>No movies added to this list yet.</p>
     <% } else { %>
+      <div class="movie-cards-grid">
     <!-- if there are movies, display them -->
     <% list.movies.forEach(movie => { %>
     <!-- loop through each movie in the list -->
-    <div>
+    <div class="movie-show-card">
       <!-- show the movie poster  -->
       <img
         src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
@@ -34,10 +37,13 @@
       <!-- show the title of the movie -->
       <p><%= movie.title %></p>
     </div>
-    <% }) %> <% } %>
+    <% }) %> 
+      </div>
+    <% } %>
 
     <!-- if the logged-in user is the owner of this list, show edit and delete options -->
     <% if (list.user._id.equals(session.user._id)) { %>
+      <div class="list-controls">
     <!-- link to edit the list -->
     <a href="/lists/<%= list._id %>/edit">Edit this List</a>
 
@@ -47,8 +53,10 @@
         Delete List
       </button>
     </form>
+    </div>
     <% } %>
 
     <a href="/lists">← Back to All Lists</a>
+    </div>
   </body>
 </html>
