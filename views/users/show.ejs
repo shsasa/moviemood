@@ -50,9 +50,35 @@
             </p>
           </li>
           <% }) %>
-            <!-- <a href="/users">Back to All Users</a> -->
-            <a href="/">Back to Home</a>
+
+      </ul>
+      <h2>User reviews</h2>
+      <ul>
+        <% reviews.forEach(review=> { %>
+          <li>
+            <a href="/movies/<%= review.apiId %>">
+              <h3>
+                <%= review.title %>
+              </h3>
+            </a>
+
+            <p>
+              <strong>Rating:</strong>
+              <%= review.review.rating %>
+            </p>
+            <p>
+              <strong>Rating:</strong>
+              <%= review.review.comment %>
+            </p>
+
+          </li>
+          <% }) %>
+      </ul>
+      <!-- <a href="/users">Back to All Users</a> -->
+      <a href="/">Back to Home</a>
     </div>
+
+
 
 </body>
 
