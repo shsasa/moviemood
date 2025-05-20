@@ -738,7 +738,10 @@ body.edit-profile-page .nav-right {
 
 
 /* === Scoped styles for search.ejs only === */
-.movies-show-wrapper {
+.movies-search-page{
+  background-color: #887D9B;
+}
+.movies-search-wrapper {
   padding: 2rem;
   max-width: 1400px;
   margin: auto;
@@ -747,33 +750,36 @@ body.edit-profile-page .nav-right {
 .search-page-title {
   text-align: center;
   font-size: 2rem;
-  color: #ffd700;
+  color: #230046;
   margin-top: 1rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
 }
 
 .search-page-number h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #fff;
   margin-top: 0.5rem;
 }
 
-.search-movies-list {
- display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
-  justify-content: center;
+.search-movie-list {
+  display: grid;
+  grid-template-columns: repeat(5, 180px); /* Fixed card width */
+  column-gap: 4rem;      /* Reduce horizontal spacing */
+  row-gap: 2rem;         /* Keep vertical spacing as-is */
+  justify-content: center; /* Center the whole grid */
   margin: 2rem auto;
-  max-width: 1400px;
-  padding: 0 1rem;
+  max-width: 100%;
 }
+
 
 .search-movie-card {
 background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 0.5rem;
-  width: 180px;
-  height: 230px;
+  width: 200px;
+  height: 450px;
   text-align: center;
   color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -789,6 +795,7 @@ background: rgba(255, 255, 255, 0.05);
 .search-movie-card img {
   width: 100%;
   border-radius: 8px;
+  text-decoration: none;
 }
 
 .search-movie-card-title h2 {
@@ -800,7 +807,7 @@ background: rgba(255, 255, 255, 0.05);
 .search-add-to-list {
   display: inline-block;
   margin-top: 0.5rem;
-  color: #ffd700;
+  color: #FDDE03;
   font-weight: bold;
   text-decoration: none;
 }
@@ -812,7 +819,7 @@ background: rgba(255, 255, 255, 0.05);
 }
 
 .search-pagination a {
-  color: #ffd700;
+  color: #FDDE03;
   font-weight: bold;
   margin: 0 1rem;
   text-decoration: none;
@@ -821,4 +828,11 @@ background: rgba(255, 255, 255, 0.05);
 .search-pagination span {
   color: white;
 }
+
+.search-movie-card a {
+  text-decoration: none;
+}
+
+
+
 
