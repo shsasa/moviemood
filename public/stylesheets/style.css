@@ -720,42 +720,89 @@ body.edit-profile-page .nav-right {
   text-align: left;
 }
 
-.movies-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+
+/* === Scoped styles for search.ejs only === */
+.movies-show-wrapper {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: auto;
 }
 
-.movie-card {
-  padding: 1rem;
-  border-radius: 12px;
-  width: 220px;
+.search-page-title {
   text-align: center;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
+  font-size: 2rem;
+  color: #ffd700;
+  margin-top: 1rem;
 }
 
-.movie-card:hover {
+.search-page-number h2 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+.search-movies-list {
+ display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem auto;
+  max-width: 1400px;
+  padding: 0 1rem;
+}
+
+.search-movie-card {
+background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 0.5rem;
+  width: 180px;
+  height: 230px;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.search-movie-card:hover {
   transform: scale(1.05);
 }
 
-.movie-card img {
-  max-width: 100%;
+.search-movie-card img {
+  width: 100%;
   border-radius: 8px;
 }
 
-.movie-card-title h2 {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+.search-movie-card-title h2 {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0.5rem 0;
 }
 
-.add-to-list-link {
+.search-add-to-list {
   display: inline-block;
   margin-top: 0.5rem;
   color: #ffd700;
-  text-decoration: underline;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.search-pagination {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.search-pagination a {
+  color: #ffd700;
+  font-weight: bold;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.search-pagination span {
+  color: white;
 }
 

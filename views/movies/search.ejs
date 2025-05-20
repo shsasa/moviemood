@@ -1,18 +1,18 @@
-<body class="movie-show-page">
+<body class="movies-search-page">
   <%- include('../partials/_navbar.ejs') %>
 
-  <div class="movie-index-wrapper">
+  <div class="movies-search-wrapper">
 
-    <div class="page-title">Search Results for "<%= searchTerm %>"</div>
-    <div class="page-number">
+    <div class="search-page-title">Search Results for "<%= searchTerm %>"</div>
+    <div class="search-page-number">
   <h2>Page <%= currentPage %> of <%= totalPages %></h2>
   </div>
 
-  <div class="movie-list">
+  <div class="search-movie-list">
     <% movies.forEach(movie => { %>
-    <div class="movie-card">
-      <a href="/movies/<%= movie.id %>" class="movie-card-link">
-        <div class="movie-card-title">
+    <div class="search-movie-card">
+      <a href="/movies/<%= movie.id %>" class="search-movie-card-link">
+        <div class="search-movie-card-title">
         <h2><%= movie.title %></h2> 
         </div>
 
@@ -39,7 +39,7 @@
 
       <!-- link to that will let the user add this movie to a list. -->
       
-      <a href="<%= addToListUrl %>" style="display: inline-block; margin-top: 0.5rem; color: #ffd700;" >Add to List</a>
+      <a href="<%= addToListUrl %>" class="search-add-to-list" >Add to List</a>
       
       <% } %>
     </div>
@@ -47,7 +47,7 @@
     </div>
 
 
-    <div class="page-number">
+    <div class="search-pagination">
       <% if (currentPage> 1) { %>
         <a href="/movies/search?searchTerm=<%= searchTerm %>&page=<%= currentPage - 1 %>">Previous</a>
         <% } %>
