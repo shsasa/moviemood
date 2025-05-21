@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
     //List.find() => its to find all documents (lists)in the List collection that match the condition inside {}
     lists = await List.find({
-      //$or its a MongoDB operator, match documents where at least one of the conditions in the array is true.
+      //$or its a MongoDB operator, match documents where at least one of the conditions in the arry is true.
       $or: [{ user: userId }, { public: true }]
       // if either belongs to the current user or its public
     }).populate('movies') //load data from each list (get full movie objects) .populate(is Mongoose method to fetch data)
@@ -112,11 +112,14 @@ router.post('/', async (req, res) => {
     // Use selectedMovies from session to req.body.movies
     let moviesToAdd = []
 
-    if (req.session.selectedMovies && req.session.selectedMovies.length > 0) {
-      moviesToAdd = req.session.selectedMovies
-    } else if (req.body.movies) {
-      moviesToAdd = req.body.movies
-    }
+
+    //to check
+  if (req.body.movies) {
+  moviesToAdd = req.body.movies
+}
+
+moviesToAdd= [].concat(moviesToAdd)
+
 
     const list = new List({
       //defined the list
@@ -246,14 +249,18 @@ router.put('/:id', async (req, res) => {
     //prepare an array for movies to update in the list
     let updatedMovies = []
 
-    //if there are selected movies saved in session, use them
-    if (req.session.selectedMovies && req.session.selectedMovies.length > 0) {
-      updatedMovies = req.session.selectedMovies
-    }
-    //else, use movies sent in the form submission (array)
-    else if (req.body.movies) {
-      updatedMovies = [].concat(req.body.movies || [])
-      //.concat() its force it to always become ana array (even if its only one movie selected)
+    // //if there are selected movies saved in session, use them
+    // if (req.session.selectedMovies && req.session.selectedMovies.length > 0) {
+    //   updatedMovies = req.session.selectedMovies
+    // }
+    // //else, use movies sent in the form submission (array)
+    // else if (req.body.movies) {
+    //   updatedMovies = [].concat(req.body.movies || [])
+    //   //.concat() its force it to always become ana array (even if its only one movie selected)
+    // }
+
+    if (req.body.movies) {
+      updatedMovies = [].concat(req.body.movies)
     }
 
     //update the list fields with new values from the from

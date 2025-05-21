@@ -1,88 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <title>User Profile | MovieMood</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-
 <body class="profile-page">
   <%- include('../partials/_navbar.ejs') %>
 
-    <div class="profile-container">
-      <h1>
-        <%= userprofile.username %>'s Profile
-      </h1>
+  <div class="content-wrapper">
+    <!-- Profile Title -->
+    <h1 class="show-profile-title text-center"><%= userprofile.username %>'s Profile</h1>
 
-      <div class="profile-details">
-        <% if(userprofile.image) { %>
-          <img src="<%= userprofile.image %>" alt="Profile Picture" />
-          <% }else { %>
-            <p>No profile image set.</p>
-            <% } %>
-              <p><strong>Username:</strong>
-                <%= userprofile.username %>
-              </p>
+    <!-- Profile Info -->
+    <div class="show-profile-details">
+      <% if (userprofile.image) { %>
+        <img src="<%= userprofile.image %>" alt="Profile Picture" class="show-profile-img" />
+      <% } else { %>
+        <p>No profile image set.</p>
+      <% } %>
 
-              <% if (isSignedInUser) { %>
-
-                <p><strong>Email:</strong>
-                  <%= userprofile.email %>
-                </p>
-
-                <a href="/users/<%= userprofile._id %>/edit">Edit Profile</a>
-
-
-                <% } %>
-
+      <div class="show-profile-info">
+        <p><strong>Username:</strong> <%= userprofile.username %></p>
+        <% if (isSignedInUser) { %>
+          <p><strong>Email:</strong> <%= userprofile.email %></p>
+          <a href="/users/<%= userprofile._id %>/edit" class="show-edit-profile-link">Edit Profile</a>
+        <% } %>
       </div>
-      <!-- <a href="/users">Back to All Users</a> -->
-
-      <h2>user Lists</h2>
-      <ul>
-        <% lists.forEach(list=> { %>
-          <li>
-            <a href="/lists/<%= list._id %>">
-              <h3>
-                <%= list.title %>
-              </h3>
-            </a>
-            <p>
-              <%= list.description %>
-            </p>
-          </li>
-          <% }) %>
-
-      </ul>
-      <h2>User reviews</h2>
-      <ul>
-        <% reviews.forEach(review=> { %>
-          <li>
-            <a href="/movies/<%= review.apiId %>">
-              <h3>
-                <%= review.title %>
-              </h3>
-            </a>
-
-            <p>
-              <strong>Rating:</strong>
-              <%= review.review.rating %>
-            </p>
-            <p>
-              <strong>Rating:</strong>
-              <%= review.review.comment %>
-            </p>
-
-          </li>
-          <% }) %>
-      </ul>
-      <!-- <a href="/users">Back to All Users</a> -->
-      <a href="/">Back to Home</a>
     </div>
 
+    <!-- User Lists -->
+    <h2 class="show-section-title">User Lists</h2>
+    <ul class="show-list-previews">
+      <% lists.forEach(list => { %>
+        <li class="show-list-preview-card">
+          <a href="/lists/<%= list._id %>" class="show-list-title-link"><%= list.title %></a>
+          <p class="list-description"><%= list.description %></p>
+        </li>
+      <% }) %>
+    </ul>
 
+    <!-- User Reviews -->
+    <h2 class="show-section-title">User Reviews</h2>
+    <ul class="review-previews">
+      <% reviews.forEach(review => { %>
+        <li class="review-preview-card">
+          <a href="/movies/<%= review.apiId %>" class="review-movie-link"><%= review.title %></a>
+        <p class="review-rating">
+  <strong>Rating:</strong>
+  <% for (let i = 1; i <= 5; i++) { %>
+    <% if (i <= review.review.rating) { %>
+      <span class="star filled">&#9733;</span> <!-- filled star -->
+    <% } else { %>
+      <span class="star">&#9734;</span> <!-- empty star -->
+    <% } %>
+  <% } %>
+</p>
 
+          <p class="review-comment"><%= review.review.comment %></p>
+        </li>
+      <% }) %>
+    </ul>
+
+    <!-- Back Button -->
+    <div class="show-btn-back-home">
+      <a href="/" class="btn-back-home">Back to Home</a>
+    </div>
+  </div>
 </body>
-
-</html>
