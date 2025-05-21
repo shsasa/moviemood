@@ -79,19 +79,21 @@
         <p><%= review.comment %></p>
 
         <% if (user && review.user._id.toString() === user._id.toString()) { %>
+<div style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem;">
           <!-- Delete Button -->
-          <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST" style="display:inline;">
+          <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST" style="margin: 0;">
             <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
           </form>
 
           <!-- Update Button -->
-          <button onclick="document.getElementById('edit-form-<%= review._id %>').style.display = 'block'">
-            Edit
+          <button onclick="document.getElementById('edit-form-<%= review._id %>').style.display = 'block' ">
+          Edit
           </button>
+</div>
 
           <!-- Hidden Update Form -->
           <div id="edit-form-<%= review._id %>" class="movie-show-edit-form" style="display:none;">
-            <form action="/reviews/<%= review._id %>?_method=PUT" method="POST">
+            <form style="text-align: center;" action="/reviews/<%= review._id %>?_method=PUT" method="POST">
               <input type="hidden" name="movieId" value="<%= movie.id %>">
 <label for="rating">Rating:</label>
 <div class="star-rating">
@@ -107,7 +109,7 @@
               <label for="comment">Comment:</label><br>
               <textarea name="comment" rows="4" cols="50" required><%= review.comment %></textarea>
               <br><br>
-              <button type="submit">Update Review</button>
+              <button class="update-review-btn"style="background-color:#46007c; color:white; padding:0.5rem 1rem; border:none; border-radius:8px; cursor:pointer; " type="submit" >Update Review</button>
             </form>
       </div>
         <% } %>
@@ -145,6 +147,8 @@
 </div>
 </div>
 </body>
+
+
 <script>
   document.getElementById('reviewButton').addEventListener('click', () => {
     const form = document.getElementById('reviewForm');
