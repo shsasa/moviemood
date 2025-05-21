@@ -1,95 +1,81 @@
-<body>
-  <h1>
-    <%= movie.title %>
-  </h1>
+<body class="movie-show-page">
   <%- include('../partials/_navbar.ejs') %>
+  <title> <%= movie.title %></title>
 
-    <div style="text-align: center; margin-top: 20px">
-      <% if (movie.poster_path) { %>
-        <img src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>" alt="<%= movie.title %>"
-          style="width: 300px" />
-        <% } else { %>
-          <p>No poster available</p>
-          <% } %>
-    </div>
+  <div class="movie-show-container">
+    <div class="movie-show-header">
+  <h1 class="movie-show-title"> <%= movie.title %></h1>
 
-    <div style="margin-top: 20px; text-align: center">
-      <p><strong>Overview:</strong>
-        <%= movie.overview %>
-      </p>
-      <p><strong>Release Date:</strong>
-        <%= movie.release_date %>
-      </p>
-      <p>
-        <strong>Rating:</strong>
-        <%= movie.vote_average %> (Votes: <%= movie.vote_count %>)
-      </p>
-      <p><strong>Popularity:</strong>
-        <%= movie.popularity %>
-      </p>
-      <p><strong>Language:</strong>
-        <%= movie.original_language %>
-      </p>
-    </div>
+
+<% if (user) { %>
+<% if (isFavorite) { %>
+<!-- Remove from Favorites -->
+<form action="/favorites/<%= movie.id %>/?_method=DELETE" method="post">
+<button type="submit"> Remove from Favorites </button>
+</form>
+
+<% } else { %>
+<!-- Add to Favorites -->
+<form action="/favorites/" method="post">
+<input type="hidden" name="title" value="<%= movie.title %>" />
+<input type="hidden" name="apiId" value="<%= movie.id %>" />
+<input type="hidden" name="poster_path" value="<%= movie.poster_path %>" />
+<button type="submit">Add to Favorites</button>
+</form>
+<% } %>
+<% } %>   
+</div>
+
+<div class="movie-show-details">
+<div class="movie-show-poster">
+<% if (movie.poster_path) { %> <img src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>" alt="<%= movie.title %>"/>
+<% } else { %>
+<p class="empty-msg">No poster available</p>
+<% } %>
+</div>
+
+<div class="movie-show-info">
+<p><strong>Overview:</strong> <%= movie.overview %></p>
+<p><strong>Release Date:</strong><%= movie.release_date %></p>
+<p><strong>Rating:</strong> <%= movie.vote_average %> (Votes: <%= movie.vote_count %>)</p>
+<p><strong>Popularity:</strong>
+<%= movie.popularity %></p>
+<p><strong>Language:</strong><%= movie.original_language %></p>
 
     <% if (trailerKey) { %>
-      <div style="margin-top: 20px; text-align: center">
-        <h2>Watch Trailer</h2>
+      <div class="movie-show-trailer">
+        <h3>Watch Trailer</h3>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= trailerKey %>"
           title="YouTube video player" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
       <% } else { %>
-        <p style="text-align: center; margin-top: 20px;">No trailer available</p>
+        <p class="empty-msg">No trailer available</p>
         <% } %>
 
-
-
-          <% if (user) { %>
-
-            <div style="margin-top: 20px; text-align: center">
-              <% if (isFavorite) { %>
-                <!-- Remove from Favorites -->
-                <form action="/favorites/<%= movie.id %>/?_method=DELETE" method="post">
-                  <button type="submit" style="
-          padding: 10px 20px;
-          background-color: red;
-          color: white;
-          border: none;
-          cursor: pointer;
-        ">
-                    Remove from Favorites
-                  </button>
-                </form>
-                <% } else { %>
-                  <!-- Add to Favorites -->
-                  <form action="/favorites/" method="post">
-                    <input type="hidden" name="title" value="<%= movie.title %>" />
-                    <input type="hidden" name="apiId" value="<%= movie.id %>" />
-                    <input type="hidden" name="poster_path" value="<%= movie.poster_path %>" />
-                    <button type="submit" style="
-          padding: 10px 20px;
-          background-color: green;
-          color: white;
-          border: none;
-          cursor: pointer;
-        ">
-                      Add to Favorites
-                    </button>
-                  </form>
-                  <% } %>
-            </div>
-<% } %>   
 <!-- show existing reviews -->
-<div class="review-section">
+<div class="movie-show-reviews">
   <h2>Reviews</h2>
 
   <% if (reviews && reviews.length > 0) { %>
     <% reviews.forEach(review => { %>
-      <div class="review-box">
-        <p><strong><%= review.user.username %>:</strong></p>
-        <p><%= review.rating %>/5</p>
+      <div class="movie-show-review-box">
+<p>
+  <a href="/users/<%= user._id %>">
+  <img src="<%= user.image || 'https://i.imgur.com/dM7Thhn.png' %>" class="movie-show-profile" width="100" />
+</a> 
+<strong><%= review.user.username %>:</strong>
+        </p>
+        <p>
+        <% for (let i = 1; i <= 5; i++) { %>
+          <% if (i <= review.rating) { %>
+            <span class="star filled">&#9733;</span> <!-- filled star -->
+          <% } else { %>
+            <span class="star">&#9734;</span> <!-- empty star -->
+          <% } %>
+        <% } %>
+      </p>
         <p><%= review.comment %></p>
 
         <% if (user && review.user._id.toString() === user._id.toString()) { %>
@@ -104,15 +90,19 @@
           </button>
 
           <!-- Hidden Update Form -->
-          <div id="edit-form-<%= review._id %>" style="display:none; margin-top: 10px;">
+          <div id="edit-form-<%= review._id %>" class="movie-show-edit-form" style="display:none;">
             <form action="/reviews/<%= review._id %>?_method=PUT" method="POST">
               <input type="hidden" name="movieId" value="<%= movie.id %>">
-              <label for="rating">Rating:</label>
-              <select name="rating" required>
-                <% for (let i = 1; i <= 5; i++) { %>
-          <option value="<%= i %>" <%= review.rating === i ? 'selected' : '' %>><%= i %></option>
-                <% } %>
-              </select>
+<label for="rating">Rating:</label>
+<div class="star-rating">
+  <% for (let i = 5; i >= 1; i--) { %>
+    <input  type="radio" id="star<%= i %>" name="rating" value="<%= i %>" required 
+  <%= review.rating === i ? 'checked' : '' %> 
+    >
+    <label for="star<%= i %>">&#9733;</label>
+  <% } %>
+</div>
+
               <br><br>
               <label for="comment">Comment:</label><br>
               <textarea name="comment" rows="4" cols="50" required><%= review.comment %></textarea>
@@ -124,28 +114,29 @@
       </div>
     <% }) %>
   <% } else { %>
-    <p>No reviews yet. Be the first to write one!</p>
+    <p class="empty-msg">No reviews yet. Be the first to write one!</p>
   <% } %>
 
   <!-- Submit form if there is no review-->
   <% if (user && !reviews.some(r => r.user._id.toString() === user._id.toString())) { %>
-    <div class="review-form" style="margin-top: 20px;">
-  <h3>Leave a Review</h3>
- <form action="/reviews" method="POST">
-   <input type="hidden" name="movieId" value="<%= movie.id %>">
-   <label for="rating">Rating:</label>
-    <select name="rating" required>
+    <div class="movie-show-review-form" >
+  <h3>Leave A Movie Review</h3>
+<form action="/reviews" method="POST">
+<input type="hidden" name="movieId" value="<%= movie.id %>">
+<label for="rating">Rating:</label>
+<div class="star-rating">
     <% for (let i = 1; i <= 5; i++) { %>
-     <option value="<%= i %>"><%= i %></option>
-     <% } %>
-     </select>
-      <br><br>
+<input type="radio" id="star<%= i %>" name="rating" value="<%= i %>" required>
+<label for="star<%= i %>">&#9733;</label>
+<% } %>
+    </div>
+    <br>
   <label for="comment">Comment:</label><br>
     <textarea name="comment" rows="4" cols="50" required></textarea>
-  <br><br>
   <button type="submit">Submit Review</button>
-   </form>
+</form>
     </div>
   <% } %>
+</div>
 </div>
 </body>

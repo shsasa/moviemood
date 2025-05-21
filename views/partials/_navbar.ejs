@@ -27,12 +27,12 @@
       <a href="/movies">Movies</a>
       <% if (user) { %>
         <a href="/favorites">Favorites</a>
-        <a href="/users">users</a>
+        <a href="/users">Users</a>
         <% } %>
     
       <% if (user) { %>
         <!-- <span>Hi <%= user.username %></span> -->
-<a href="/lists">View my lists</a>
+<a href="/lists">Movie Lists</a>
         <a href="/auth/sign-out">Sign out</a>
       <a href="/users/<%= user._id %>">
   <img src="<%= user.image || 'https://i.imgur.com/dM7Thhn.png' %>" alt="Profile Image" width="100" />

@@ -160,15 +160,14 @@ nav a:hover {
   font-weight: bold;
 }
 
-
 .review-section {
   margin-top: 10px;
-  text-align:center;
+  text-align: center;
 }
 .review-box {
   border: 1px solid #ccc;
-  padding:10px;
-  margin:10px auto;
+  padding: 10px;
+  margin: 10px auto;
   width: 60%;
 }
 .review-form {
@@ -357,9 +356,7 @@ nav a:hover {
   text-align: center;
   margin-bottom: 2rem;
   text-decoration: none;
-
 }
-
 
 .page-title {
   font-family: 'Poetsen One', sans-serif;
@@ -525,9 +522,9 @@ body.signup-page .nav-right .home-link {
   padding: 0.5rem 1.2rem;
 }
 
-.auth-container input[type="text"],
-.auth-container input[type="email"],
-.auth-container input[type="password"] {
+.auth-container input[type='text'],
+.auth-container input[type='email'],
+.auth-container input[type='password'] {
   background-color: #f0f4ff;
   color: #230046;
   border-radius: 8px;
@@ -538,7 +535,7 @@ body.signup-page .nav-right .home-link {
   outline: none;
 }
 .signin-page {
-  background-image: url('https://i.imgur.com/ioAofpC.png'); 
+  background-image: url('https://i.imgur.com/ioAofpC.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -554,17 +551,16 @@ body.signup-page .nav-right .home-link {
   color: #10002b;
 }
 
-
 body.signin-page .nav-right {
   display: none;
 }
 
 h1.new {
-  font-size: 2.2rem; 
+  font-size: 2.2rem;
   font-family: 'Ubuntu', sans-serif;
-  font-weight: bold; 
-  color: #230046; 
-  margin-bottom: 1rem;   
+  font-weight: bold;
+  color: #230046;
+  margin-bottom: 1rem;
 }
 
 .profile-page {
@@ -583,7 +579,7 @@ h1.new {
 .profile-container {
   max-width: 500px;
   margin: 4rem 15rem 5rem auto;
-  background-color: transparent; 
+  background-color: transparent;
   color: #230046;
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
@@ -630,11 +626,11 @@ h1.new {
 }
 
 body.profile-page .nav-right {
-    display: none;
+  display: none;
 }
 
 body.edit-profile-page {
-background-image: url('https://i.imgur.com/ioAofpC.png');
+  background-image: url('https://i.imgur.com/ioAofpC.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -649,7 +645,7 @@ background-image: url('https://i.imgur.com/ioAofpC.png');
 .auth-container {
   max-width: 500px;
   margin: 4rem 10rem 5rem auto;
-  background-color: transparent; 
+  background-color: transparent;
   color: #230046;
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
@@ -668,12 +664,12 @@ background-image: url('https://i.imgur.com/ioAofpC.png');
   color: #230046;
 }
 
-.auth-container input[type="text"],
-.auth-container input[type="email"],
-.auth-container input[type="file"] {
-  background-color: #f0f4ff; 
-  color: #230046; 
-  border-radius: 8px;   
+.auth-container input[type='text'],
+.auth-container input[type='email'],
+.auth-container input[type='file'] {
+  background-color: #f0f4ff;
+  color: #230046;
+  border-radius: 8px;
   padding: 0.8rem 1rem;
   font-size: 1rem;
   font-family: 'Ubuntu', sans-serif;
@@ -681,14 +677,13 @@ background-image: url('https://i.imgur.com/ioAofpC.png');
   outline: none;
 }
 
-.auth-container input[type="text"]:focus,
-.auth-container input[type="email"]:focus,
-.auth-container input[type="password"]:focus {
-  border-color: #7b4eff; 
+.auth-container input[type='text']:focus,
+.auth-container input[type='email']:focus,
+.auth-container input[type='password']:focus {
+  border-color: #7b4eff;
   box-shadow: 0 0 8px #7b4eff;
-  background-color: #e6ebff; 
+  background-color: #e6ebff;
 }
-
 
 .auth-container button {
   padding: 0.7rem 1rem;
@@ -708,11 +703,11 @@ background-image: url('https://i.imgur.com/ioAofpC.png');
 }
 
 body.edit-profile-page .nav-right {
-    display: none;
+  display: none;
 }
 
 .auth-container button {
-  background-color: #230046; 
+  background-color: #230046;
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -720,7 +715,7 @@ body.edit-profile-page .nav-right {
   font-weight: bold;
   border-radius: 999px;
   cursor: pointer;
-  width: 100%; 
+  width: 100%;
   max-width: 300px;
   transition: background-color 0.3s ease;
   margin-top: 1rem;
@@ -728,18 +723,17 @@ body.edit-profile-page .nav-right {
 
 .auth-container label {
   font-size: 0.85rem;
-  font-weight: normal;    
-  letter-spacing: 1px; 
+  font-weight: normal;
+  letter-spacing: 1px;
   color: #230046;
-  margin-bottom: 0.3rem; 
-  display: block; 
+  margin-bottom: 0.3rem;
+  display: block;
   text-align: left;
 }
 
-
 /* === Scoped styles for search.ejs only === */
-.movies-search-page{
-  background-color: #887D9B;
+.movies-search-page {
+  background-color: #887d9b;
 }
 .movies-search-wrapper {
   padding: 2rem;
@@ -765,16 +759,15 @@ body.edit-profile-page .nav-right {
 .search-movie-list {
   display: grid;
   grid-template-columns: repeat(5, 180px); /* Fixed card width */
-  column-gap: 4rem;      /* Reduce horizontal spacing */
-  row-gap: 2rem;         /* Keep vertical spacing as-is */
+  column-gap: 4rem; /* Reduce horizontal spacing */
+  row-gap: 2rem; /* Keep vertical spacing as-is */
   justify-content: center; /* Center the whole grid */
   margin: 2rem auto;
   max-width: 100%;
 }
 
-
 .search-movie-card {
-background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 0.5rem;
@@ -783,7 +776,7 @@ background: rgba(255, 255, 255, 0.05);
   text-align: center;
   color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
@@ -807,7 +800,7 @@ background: rgba(255, 255, 255, 0.05);
 .search-add-to-list {
   display: inline-block;
   margin-top: 0.5rem;
-  color: #FDDE03;
+  color: #fdde03;
   font-weight: bold;
   text-decoration: none;
 }
@@ -819,7 +812,7 @@ background: rgba(255, 255, 255, 0.05);
 }
 
 .search-pagination a {
-  color: #FDDE03;
+  color: #fdde03;
   font-weight: bold;
   margin: 0 1rem;
   text-decoration: none;
@@ -833,23 +826,23 @@ background: rgba(255, 255, 255, 0.05);
   text-decoration: none;
 }
 
-.favorite-movies-list{
-    display: grid;
-  grid-template-columns: repeat(5, 180px); 
-  column-gap: 4rem;      
-  row-gap: 2rem;       
-  justify-content: center; 
+.favorite-movies-list {
+  display: grid;
+  grid-template-columns: repeat(5, 180px);
+  column-gap: 4rem;
+  row-gap: 2rem;
+  justify-content: center;
   margin: 2rem auto;
   max-width: 100%;
 }
 
-.favorite-page-title{
+.favorite-page-title {
   font-family: 'Poetsen One', sans-serif;
   font-size: 4.5rem;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 1rem;
-  color: white; 
+  color: white;
   text-align: center;
 }
 
@@ -864,8 +857,6 @@ background: rgba(255, 255, 255, 0.05);
   align-items: center;
   overflow: hidden;
   display: flex;
-
-  
 }
 
 .favorites-background-lottie iframe {
@@ -874,14 +865,13 @@ background: rgba(255, 255, 255, 0.05);
   opacity: 0.8;
 }
 
-
 /* === Scoped styles for views/lists/index.ejs === */
 .lists-index-page {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
-  background: url('https://i.imgur.com/DP9BffK.png') no-repeat center center fixed;
+  background: url('https://i.imgur.com/DP9BffK.png') no-repeat center center
+    fixed;
   background-size: cover;
-
 }
 
 /* Header with title and "Add New List" button */
@@ -898,7 +888,7 @@ background: rgba(255, 255, 255, 0.05);
   text-align: center;
   font-family: 'Poetsen One', sans-serif;
   margin: 0;
-  color: #ffd700;
+  color: black;
 }
 
 .lists-page-header a {
@@ -909,7 +899,6 @@ background: rgba(255, 255, 255, 0.05);
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  
 }
 
 .lists-page-header a:hover {
@@ -918,21 +907,29 @@ background: rgba(255, 255, 255, 0.05);
 
 /* Card for each list */
 .movie-list-card {
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 16px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  background-color: rgba(232, 232, 232, 0.4);
+  padding: 0.6rem;
+  margin-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   width: 570px;
   margin-right: auto;
   margin-left: 100px;
-font-family: 'Urbanist','Lora', sans-serif;
+  font-family: 'Urbanist', 'Lora', sans-serif;
+  border-radius: 16px;
 }
 
 .movie-list-card h2 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
-  color: #ffd700;
+  color: black;
+  font-family: 'Poetsen One', 'Lora', sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  justify-content: center;
 }
 
 .movie-list-card p {
@@ -958,18 +955,24 @@ font-family: 'Urbanist','Lora', sans-serif;
 
 /* Link to full list */
 .movie-list-card a {
-  color: #ffd700;
+  color: black;
   text-decoration: none;
   font-weight: bold;
+  font-family: 'Lora', sans-serif;
+  background-color: #ffd700;
+  padding: 0 0.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .movie-list-card a:hover {
-  text-decoration: underline;
+  background-color: #e6c200;
 }
 
 /* Background for the whole page */
 body.lists-show-page {
-  background-color: #887D9B;
+  background-color: #887d9b;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -982,7 +985,7 @@ body.lists-show-page {
 
 /* Overlay container for better readability */
 .list-show-container {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(232, 232, 232, 0.4);
   max-width: 1000px;
   margin: 3rem auto;
   padding: 2rem;
@@ -992,36 +995,28 @@ body.lists-show-page {
 
 /* Header styles */
 .list-show-container h1 {
-  text-align: center;
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #ffd700;
-  font-family: 'Poetsen One','Lora', sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  color: #46007c;
+  font-family: 'Poetsen One', 'Lora', sans-serif;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
   letter-spacing: 1px;
   transition: all 0.3s ease-in-out;
-}
-
-.list-show-container h2 {
-  font-size: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: #ffd700;
-  font-family: 'Poetsen One','Lora', sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  justify-content: center;
 }
 
 /* Paragraphs */
 .list-show-container p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: #f0f0f0;
-  letter-spacing: 0.3px;
-  font-family: 'Urbanist','Lora', sans-serif;
-  font-weight: 400;
-  margin: 0.5rem 0;
-  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.3rem;
+  color: #ffffff;
+  text-decoration: none;
+  
 }
 
 /* Movie card grid */
@@ -1051,11 +1046,11 @@ body.lists-show-page {
 
 .movie-show-card p {
   font-size: 1rem;
-  font-weight: 600;
-  color: #ffd700;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  margin-top: 0.5rem;
-font-family: 'Poetsen One','Lora', sans-serif;
+  font-weight: bold;
+  margin-top: 0.3rem;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
 }
 
 /* Container for the buttons: center and align */
@@ -1071,8 +1066,8 @@ font-family: 'Poetsen One','Lora', sans-serif;
 .list-controls button {
   min-width: 140px;
   text-align: center;
-  background-color: #ffd700;
-  color: #000;
+  background-color: #46007c;
+  color: #ffffff;
   padding: 0.6rem 1rem;
   border: none;
   border-radius: 8px;
@@ -1082,7 +1077,8 @@ font-family: 'Poetsen One','Lora', sans-serif;
   line-height: 1.4;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .list-controls button:hover,
@@ -1093,15 +1089,545 @@ font-family: 'Poetsen One','Lora', sans-serif;
 }
 
 /* Back link */
-.list-show-container a[href="/lists"] {
+.list-show-container a[href='/lists'] {
   display: inline-block;
+  margin-top: 2rem;
+  color: #46007c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.list-show-container a[href='/lists']:hover {
+  text-decoration: underline;
+}
+
+.list-creator {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.list-show-profile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.created-by {
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.list-status {
+  font-size: 1.2rem;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+}
+/* Page background and layout */
+.new-list-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  color: #fff;
+}
+
+/* Main heading */
+.new-list-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #ffd700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Container for the form */
+.new-list-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Search form */
+.new-list-search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.new-list-search-form input[type="text"] {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.new-list-search-form button {
+  background-color: #ffd700;
+  font-size: 0.8rem;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.new-list-search-form button:hover {
+  background-color: #e6c200;
+}
+
+/* Selected movies heading */
+.new-list-subheading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Empty message */
+.empty-msg {
+  font-style: italic;
+  color: #ccc;
+}
+
+/* Movie grid */
+.new-list-movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.new-list-movie-item {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 120px;
+}
+
+.new-list-movie-poster {
+  width: 100px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.new-list-movie-label {
+  display: block;
+  font-size: 0.9rem;
+}
+
+/* Form fields */
+.new-list-label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #ffe;
+}
+
+.new-list-input,
+.new-list-textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+}
+
+/* Checkbox */
+.new-list-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* Submit button */
+.new-list-submit-btn {
+  background-color: #ffd700;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 2rem auto 0 auto;
+  display: block;
+}
+
+.new-list-submit-btn i {
+  margin-right: 0.5rem;
+}
+
+.new-list-submit-btn:hover {
+  background-color: #28a428;
+}
+
+/* Back link */
+.new-list-back-link {
+  display: block;
+  text-align: center;
   margin-top: 2rem;
   color: #ffd700;
   text-decoration: none;
   font-weight: bold;
 }
 
-.list-show-container a[href="/lists"]:hover {
+.new-list-back-link:hover {
   text-decoration: underline;
 }
 
+.status-icon {
+  font-size: 1.2rem; /* or use px like 32px */
+  color: black;
+}
+
+
+
+
+
+/* Main layout for the movie show page */
+.movie-show-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container around the content */
+.movie-show-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header: title and favorite buttons */
+.movie-show-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie-show-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.movie-show-header form {
+  margin-left: auto;
+}
+
+.movie-show-header button {
+  background-color: #46007c;
+  color: white;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.movie-show-header button:hover {
+  background-color: #6a02b9;
+}
+
+/* Movie details section */
+.movie-show-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.movie-show-poster img {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.empty-msg {
+  font-style: italic;
+  color: #888;
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+/* Movie info (overview, rating, etc.) */
+.movie-show-info {
+  flex: 1;
+  min-width: 250px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Trailer section */
+.movie-show-trailer {
+  margin-top: 2rem;
+}
+
+.movie-show-trailer h3 {
+  margin-bottom: 1rem;
+}
+
+
+
+/* === REVIEWS SECTION WRAPPER === */
+.movie-show-reviews {
+  margin-top: 3rem;
+  padding: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(3px);
+}
+
+/* Section heading */
+.movie-show-reviews h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: white;
+  border-left: 4px solid #9575cd;
+  padding-left: 0.8rem;
+}
+
+/* === REVIEW CARD === */
+.movie-show-review-box {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(150, 130, 200, 0.3);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.movie-show-review-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.movie-show-review-box p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #222;
+}
+
+.movie-show-review-box strong {
+  color: #4a148c;
+  font-weight: 600;
+}
+
+/* === BUTTONS === */
+.movie-show-review-box button,
+.movie-show-review-box form button {
+  padding: 0.5rem 1.1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 500;
+}
+
+/* Edit button */
+.movie-show-review-box button {
+  background: linear-gradient(to right, #7e57c2, #9575cd);
+  color: #fff;
+    background-color: #46007c;
+  color: white;
+  padding: 0.5rem 1rem;      
+  font-size: 0.9rem;         
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;     
+  margin: 1.5rem auto 0; 
+  max-width: 160px;  
+  text-align: center;
+
+}
+
+.movie-show-review-box button:hover {
+  background: linear-gradient(to right, #6a1b9a, #8e24aa);
+}
+
+/* Delete button */
+.movie-show-review-box form button {
+  background: linear-gradient(to right, #ef5350, #e53935);
+  color: #fff;
+    background-color: #46007c;
+  color: white;
+  padding: 0.5rem 1rem;      
+  font-size: 0.9rem;         
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;     
+  margin: 1.5rem auto 0; 
+  max-width: 160px;  
+  text-align: center;
+}
+
+.movie-show-review-box form button:hover {
+  background: linear-gradient(to right, #d32f2f, #b71c1c);
+}
+
+/* === EDIT REVIEW FORM === */
+.movie-show-edit-form {
+  background: rgba(250, 250, 255, 0.5);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+  backdrop-filter: blur(4px);
+}
+
+.movie-show-edit-form textarea,
+.movie-show-edit-form select {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* === NEW REVIEW SUBMISSION FORM === */
+.movie-show-review-form {
+  background: rgba(245, 245, 255, 0.55);
+  padding: 1.2rem 1.4rem;
+  border-radius: 12px;
+  margin-top: 2.5rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(5px);
+}
+
+.movie-show-review-form h3 {
+  color: #4527a0;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.movie-show-review-form textarea,
+.movie-show-review-form select {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.6rem;
+}
+
+/* Submit button */
+.movie-show-review-form button {
+  background-color: #46007c;
+  color: white;
+  padding: 0.5rem 1rem;      
+  font-size: 0.9rem;         
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;     
+  margin: 1.5rem auto 0; 
+  max-width: 160px;  
+  text-align: center;
+}
+
+.movie-show-review-form button:hover {
+  background-color: #6a02b9;
+}
+
+/* === ANIMATION === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.star-rating {
+  direction: rtl; /* Makes higher stars come first */
+  display: inline-flex;
+  gap: 5px;
+  font-size: 1.5rem;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* When selected or hovered */
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #f5b301;
+}
+
+.star {
+  color: #ccc;       /* gray for empty stars */
+  font-size: 1.2rem;
+  margin-right: 2px;
+}
+
+.star.filled {
+  color: #f5b301;   /* gold/yellow for filled stars */
+}
+
+.movie-show-review-form label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #5c3ea5; /* Slightly lighter purple for clarity */
+  letter-spacing: 0.03em;
+  user-select: none;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+
+.movie-show-profile{
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}

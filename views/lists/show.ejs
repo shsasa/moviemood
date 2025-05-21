@@ -4,21 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= list.title %> - Movie List</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
     <%- include('../partials/_navbar.ejs') %>
   </head>
   <body class="lists-show-page">
     <div class="list-show-container">
+      <div class="list-creator">
+      <a href="/users/<%= list.user._id %>">
+  <img src="<%= list.user.image || 'https://i.imgur.com/dM7Thhn.png' %>" class="list-show-profile" width="100" />
+</a> 
         <!-- show the username of the owner of the list -->
-    <p>Created by: <%= list.user.username %></p>
-    <h1><%= list.title %></h1>
+    <span class="created-by"> <%= list.user.username %></span>
+</div> 
 
-    <!-- show the description of the list -->
-    <p>Description: <%= list.description %></p>
+<h1><%= list.title %>
     <!-- show wether the list is public or private (ternary operator) -->
-    <p>Status: <%= list.public ? 'Public' : 'Private' %></p>
-  
+<p class="class-status">
+  <% if (list.public) { %>
+    <i class="fa-solid fa-lock-open status-icon" style="color: #46007c;" title="Public"></i>
+  <% } else { %>
+    <i class="fa-solid fa-lock status-icon" style="color: #46007c;" title="Private"></i>
+  <% } %>
+</p>
 
-    <h2>Movies in this list:</h2>
+</h1>
+
+<div class="list-details">
+    <!-- show the description of the list -->
+    <p class="list-description">Description: <%= list.description %></p>
+
+
     <!-- if there are no movies in the list, show a message -->
     <% if (list.movies.length === 0) { %>
     <p>No movies added to this list yet.</p>
@@ -29,18 +48,19 @@
     <!-- loop through each movie in the list -->
     <div class="movie-show-card">
       <!-- show the movie poster  -->
+      <a href="/movies/<%= movie.id %>">
       <img
         src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>"
         alt="<%= movie.title %>"
         width="150"
-      />
-      <!-- show the title of the movie -->
+      /></a>
+          <!-- show the title of the movie -->
       <p><%= movie.title %></p>
     </div>
     <% }) %> 
       </div>
     <% } %>
-
+  
     <!-- if the logged-in user is the owner of this list, show edit and delete options -->
     <% if (list.user._id.equals(session.user._id)) { %>
       <div class="list-controls">
