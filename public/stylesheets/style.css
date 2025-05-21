@@ -564,13 +564,7 @@ h1.new {
 }
 
 .profile-page {
-  background-image: url('https://i.imgur.com/ioAofpC.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-  display: flex;
+  background-color: #887d9b;
   flex-direction: column;
   color: #230046;
   font-family: 'Lora', 'Helvetica', 'sans-serif';
@@ -911,7 +905,7 @@ body.edit-profile-page .nav-right {
   padding: 0.6rem;
   margin-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  width: 570px;
+  width: 800px;
   margin-right: auto;
   margin-left: 100px;
   font-family: 'Urbanist', 'Lora', sans-serif;
@@ -926,10 +920,10 @@ body.edit-profile-page .nav-right {
   letter-spacing: 1px;
   transition: all 0.3s ease-in-out;
   display: flex;
-  align-items: center;
-  text-align: center;
+  align-items: left;
+  text-align: left;
   gap: 10px;
-  justify-content: center;
+  justify-content: left;
 }
 
 .movie-list-card p {
@@ -958,17 +952,22 @@ body.edit-profile-page .nav-right {
   color: black;
   text-decoration: none;
   font-weight: bold;
-  font-family: 'Lora', sans-serif;
-  background-color: #ffd700;
+  font-family: 'Urbanist', 'Lora', sans-serif;
   padding: 0 0.6rem;
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }
 
-.movie-list-card a:hover {
+/* .movie-list-card a:hover {
   background-color: #e6c200;
-}
+} */
 
 /* Background for the whole page */
 body.lists-show-page {
@@ -1009,6 +1008,8 @@ body.lists-show-page {
   justify-content: center;
 }
 
+/* till here */
+
 /* Paragraphs */
 .list-show-container p {
   font-size: 1rem;
@@ -1016,7 +1017,6 @@ body.lists-show-page {
   margin-top: 0.3rem;
   color: #ffffff;
   text-decoration: none;
-  
 }
 
 /* Movie card grid */
@@ -1162,7 +1162,7 @@ body.lists-show-page {
   margin-bottom: 2rem;
 }
 
-.new-list-search-form input[type="text"] {
+.new-list-search-form input[type='text'] {
   flex: 1;
   padding: 0.7rem;
   border: none;
@@ -1291,10 +1291,6 @@ body.lists-show-page {
   color: black;
 }
 
-
-
-
-
 /* Main layout for the movie show page */
 .movie-show-page {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1384,8 +1380,6 @@ body.lists-show-page {
   margin-bottom: 1rem;
 }
 
-
-
 /* === REVIEWS SECTION WRAPPER === */
 .movie-show-reviews {
   margin-top: 3rem;
@@ -1453,8 +1447,6 @@ body.lists-show-page {
   background-color: #46007c;
   color: white;
   transition: background-color 0.3s ease;
-
-
 }
 
 .movie-show-review-box button:hover {
@@ -1466,7 +1458,6 @@ body.lists-show-page {
   background: #e53935;
   color: #fff;
   transition: background-color 0.3s ease;
-  
 }
 
 .movie-show-review-box form button:hover {
@@ -1475,7 +1466,7 @@ body.lists-show-page {
 
 /* === EDIT REVIEW FORM === */
 .movie-show-edit-form {
-  background:rgba(93, 83, 103, 0.702);
+  background: rgba(93, 83, 103, 0.702);
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 10px;
@@ -1537,15 +1528,15 @@ body.lists-show-page {
 .movie-show-review-form button {
   background-color: #46007c;
   color: white;
-  padding: 0.5rem 1rem;      
-  font-size: 0.9rem;         
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  display: block;     
-  margin: 1.5rem auto 0; 
-  max-width: 160px;  
+  display: block;
+  margin: 1.5rem auto 0;
+  max-width: 160px;
   text-align: center;
 }
 
@@ -1572,7 +1563,7 @@ body.lists-show-page {
   font-size: 1.5rem;
 }
 
-.star-rating input[type="radio"] {
+.star-rating input[type='radio'] {
   display: none;
 }
 
@@ -1583,20 +1574,20 @@ body.lists-show-page {
 }
 
 /* When selected or hovered */
-.star-rating input[type="radio"]:checked ~ label,
+.star-rating input[type='radio']:checked ~ label,
 .star-rating label:hover,
 .star-rating label:hover ~ label {
   color: #f5b301;
 }
 
 .star {
-  color: #ccc;       /* gray for empty stars */
+  color: #ccc; /* gray for empty stars */
   font-size: 1.2rem;
   margin-right: 2px;
 }
 
 .star.filled {
-  color: #f5b301;   /* gold/yellow for filled stars */
+  color: #f5b301; /* gold/yellow for filled stars */
 }
 
 .movie-show-review-form label {
@@ -1611,8 +1602,7 @@ body.lists-show-page {
   cursor: default;
 }
 
-
-.movie-show-profile{
+.movie-show-profile {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -1620,17 +1610,17 @@ body.lists-show-page {
   margin-right: 0.5rem;
 }
 
-.review-button{
+.review-button {
   background-color: #46007c;
   color: white;
-  padding: 0.4rem 0.5rem;     
-  font-size: 0.9rem;         
+  padding: 0.4rem 0.5rem;
+  font-size: 0.9rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  display: block;     
-  margin: 1.5rem auto 0;   
+  display: block;
+  margin: 1.5rem auto 0;
   text-align: center;
 }
 
@@ -1638,4 +1628,781 @@ body.lists-show-page {
   background-color: #6a02b9;
 }
 
+.edit-list-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  color: #fff;
+}
 
+.edit-list-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #ffd700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.edit-list-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.edit-list-search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.edit-list-search-form input[type='text'] {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.edit-list-search-form button {
+  background-color: #ffd700;
+  font-size: 0.8rem;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.edit-list-search-form button:hover {
+  background-color: #e6c200;
+}
+
+.edit-list-subheading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-msg {
+  font-style: italic;
+  color: #ccc;
+}
+
+.edit-list-movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.edit-list-movie-item {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 120px;
+}
+
+.edit-list-movie-poster {
+  width: 100px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.edit-list-movie-label {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.edit-list-label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #ffe;
+}
+
+.edit-list-input,
+.edit-list-textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+}
+
+.edit-list-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.edit-list-submit-btn {
+  background-color: #ffd700;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 2rem auto 0 auto;
+  display: block;
+}
+
+.edit-list-submit-btn i {
+  margin-right: 0.5rem;
+}
+
+.edit-list-submit-btn:hover {
+  background-color: #28a428;
+}
+
+.edit-list-back-link {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.edit-list-back-link:hover {
+  text-decoration: underline;
+}
+
+.all-users-page {
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.all-users-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.all-users-title {
+  margin-bottom: 1.5rem;
+  font-family: 'Poetsen One', sans-serif;
+  font-size: 4.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+}
+
+.user-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 7.5em;
+  justify-items: center;
+}
+
+.user-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-6px);
+}
+
+.user-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.user-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+.user-card a {
+  text-decoration: none;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+/* Container */
+.content-wrapper {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #1f1f2e;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #0006;
+}
+
+/* Profile Title */
+.show-profile-title {
+  font-family: 'Poetsen One', sans-serif;
+  font-size: 4.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Profile Details Layout */
+.show-profile-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Profile Image */
+.show-profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ccc;
+}
+
+/* Info beside the image */
+.show-profile-info {
+  font-family: 'Urbanist', sans-serif;
+  color: #eee;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Edit Profile Button */
+.show-edit-profile-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #46007c;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.show-edit-profile-link:hover {
+  background-color: #6a02b9;
+}
+
+/* Section Headings */
+.show-section-title {
+  font-family: 'Urbanist', 'Lora', serif;
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 1rem;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* LIST PREVIEWS */
+.show-list-previews {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.show-list-preview-card {
+  background: #292a3a;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px #0008;
+  color: #eee;
+  transition: transform 0.2s ease;
+}
+
+.show-list-preview-card:hover {
+  transform: translateY(-4px);
+}
+
+.show-list-title-link {
+  color: #f39c12;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.list-description {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  font-family: 'Urbanist', sans-serif;
+  text-align: center;
+}
+
+/* REVIEW PREVIEWS */
+.review-previews {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.review-preview-card {
+  background: #2a2b3c;
+  border-radius: 10px;
+  padding: 1rem;
+  color: #eee;
+  box-shadow: 0 2px 6px #0006;
+  font-family: 'Urbanist', sans-serif;
+  transition: transform 0.2s ease;
+}
+
+.review-preview-card:hover {
+  transform: translateY(-4px);
+}
+
+.review-movie-link {
+  color: #f39c12;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.review-rating {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.review-comment {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Back Home Button Centered */
+.show-btn-back-home {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-back-home {
+  display: inline-block;
+  background-color: #f39c12;
+  color: #222;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.btn-back-home:hover {
+  background-color: #d87e0f;
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-left,
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-right img {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.3rem;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .home-link {
+    padding: 0.3rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .auth-container,
+  .profile-container,
+  .search-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .auth-container button,
+  .search-button,
+  .profile-container a {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .auth-container input,
+  .search-input {
+    font-size: 14px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .profile-details img {
+    width: 100px;
+    height: 100px;
+    margin-top: 0.5rem;
+    border-width: 2px;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+  }
+
+  .movies-list {
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    margin-left: 0;
+    row-gap: 2rem;
+  }
+
+  .movie-card {
+    width: 140px;
+    height: 280px;
+    padding: 0.5rem;
+  }
+
+  .movie-card img {
+    height: 200px;
+  }
+
+  .movie-card-title {
+    font-size: 0.9rem;
+  }
+
+  .index-page {
+    padding: 2rem 1rem;
+    flex-direction: column;
+    justify-content: center;
+    background-attachment: scroll;
+    height: auto;
+    text-align: center;
+  }
+
+  .index-page h1 {
+    font-size: 3rem;
+    margin-top: 1rem;
+  }
+
+  .index-page h3 {
+    font-size: 1.2rem;
+  }
+
+  .index-page p {
+    font-size: 1rem;
+    max-width: 100%;
+    margin: 1rem 0 2rem;
+  }
+
+  .index-page .join-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  .index-left,
+  .index-right {
+    max-width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .signup-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .signup-right {
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  body.signup-page .nav-right a {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .profile-page .profile-container {
+    margin: 2rem 1rem;
+    max-width: 100%;
+  }
+
+  .profile-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile-details p {
+    font-size: 1rem;
+  }
+
+  /* Smaller font sizes for headings on signin and edit-profile pages */
+  h1.new,
+  h2.new,
+  .auth-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .auth-container {
+    margin: 2rem 1rem;
+  }
+
+  .auth-container input[type='text'],
+  .auth-container input[type='email'],
+  .auth-container input[type='password'],
+  .auth-container input[type='file'] {
+    font-size: 14px;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .auth-container button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  /* Paragraphs */
+  .list-show-container p {
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+  }
+
+  /* Movie card grid: smaller min width, 2 columns max */
+  .movie-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* Movie card adjustments */
+  .movie-show-card {
+    padding: 0.8rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .movie-show-card img {
+    height: 170px;
+    margin-bottom: 0.4rem;
+  }
+
+  .movie-show-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Buttons container: stack vertically and full width */
+  .list-controls {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .list-controls a,
+  .list-controls button {
+    min-width: 100%;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+
+  /* Back link spacing */
+  .list-show-container a[href='/lists'] {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Profile picture smaller */
+  .list-show-profile {
+    width: 45px;
+    height: 45px;
+    margin-right: 0.4rem;
+  }
+
+  .created-by {
+    font-size: 1rem;
+  }
+
+  .list-status {
+    font-size: 1rem;
+  }
+
+  /* Page padding */
+  .new-list-page,
+  .edit-list-page {
+    padding: 1rem;
+  }
+
+  /* Main heading smaller */
+  .new-list-title,
+  .edit-list-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Container padding and width */
+  .new-list-container,
+  .edit-list-container {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  /* Search form stacked */
+  .new-list-search-form,
+  .edit-list-search-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .new-list-search-form input[type='text'],
+  .edit-list-search-form input[type='text'] {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .new-list-search-form button,
+  .edit-list-search-form button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  /* Selected movies grid stack */
+  .new-list-movie-grid {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .new-list-movie-item {
+    width: 100px;
+    padding: 0.4rem;
+  }
+
+  .new-list-movie-poster {
+    width: 90px;
+  }
+
+  /* Form fields */
+  .new-list-input,
+  .new-list-textarea,
+  .edit-list-input,
+  .edit-list-textarea {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  /* Submit button full width */
+  .new-list-submit-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.7rem 0;
+    margin: 1.5rem 0 0 0;
+  }
+
+  /* Movie show page adjustments */
+  .movie-show-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .movie-show-title {
+    font-size: 1.8rem;
+  }
+
+  .movie-show-details {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .movie-show-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .movie-show-info {
+    min-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .movie-show-trailer {
+    margin-top: 1rem;
+  }
+
+  /* Review boxes smaller */
+  .movie-show-review-box {
+    padding: 0.8rem 1rem;
+  }
+
+  .movie-show-review-box p {
+    font-size: 0.9rem;
+  }
+
+  /* Review form fields smaller */
+  .movie-show-edit-form textarea,
+  .movie-show-edit-form select,
+  .movie-show-review-form textarea,
+  .movie-show-review-form select {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .movie-show-review-form button,
+  .review-button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    margin: 1rem 0 0 0;
+  }
+  .movie-show-details {
+    flex-direction: column; /* Stack vertically on small screens */
+  }
+
+  .movie-show-poster img {
+    width: 100%; /* full width on small screens */
+    height: auto; /* maintain aspect ratio */
+  }
+
+  .movie-show-info {
+    min-width: auto; /* remove min width */
+    width: 100%; /* full width */
+  }
+
+  .movie-trailer iframe {
+    width: 200px; /* smaller width */
+    height: 225px; /* height matching 16:9 ratio */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+}

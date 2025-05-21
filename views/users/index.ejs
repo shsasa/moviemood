@@ -1,11 +1,25 @@
-<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%- include('../partials/_navbar.ejs') %>
-  <h1>All Users</h1>
-<ul>
+  <title>Users</title>
+</head>
+  <body class="all-users-page">
+<div class="all-users-container">
+  <h1 class="all-users-title">All Users</h1>
+
+<div class="user-card-grid">
   <% users.forEach(user => { %>
-    <li>
-      <a href="/users/<%= user._id %>"><%= user.username %></a>
-    </li>
+  <div class="user-card">
+    <a href="/users/<%= user._id %>">
+              <img class="user-avatar" src="<%= user.image || 'https://i.imgur.com/dM7Thhn.png' %>" alt="Profile Image" width="100" />
+              <p class="user-name"><%= user.username %></p>
+            </a>
+  </div>
   <% }) %>
-</ul>
+</div>
+</div>
 </body>
+</html>

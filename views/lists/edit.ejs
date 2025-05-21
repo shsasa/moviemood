@@ -6,80 +6,81 @@
     <%- include('../partials/_navbar.ejs') %>
     <title>Edit List</title>
   </head>
-  <body>
-    <h1>Edit List</h1>
+  <body class="edit-list-page">
 
-    <!-- Search Bar -->
-    <form action="/movies/search" method="GET">
-      <input type="hidden" name="listId" value="<%= list._id %>" />
-      <input
-        type="text"
-        name="searchTerm"
-        placeholder="Search for a movie..."
-        required
-      />
+    <div class="edit-list-container">
+      <h1>Edit Your Movie List</h1>
 
-      <button type="submit">Search</button>
-    </form>
-    <h3>Selected Movies</h3>
-    <!-- if there are no movies in the list or the list is empty -->
-    <% if (!list.movies || list.movies.length === 0) { %>
-      <!-- show this message -->
-      <p>No movies selected yet. Use the search bar above to add.</p>
-    <% } else { %>
-      <!-- if there are movies in the list, display then in the list -->
-      <ul> <!-- loop through each movie in the list -->
-        <% list.movies.forEach(movie => { %>
-          <li>  
-            <!-- if the movie has a poster, show it -->
-            <% if (movie.poster) { %>
-              <img src="https://image.tmdb.org/t/p/w200<%= movie.poster %>" alt="<%= movie.title %>" width="100" />
-            <% } %>
-            <!-- show a checkbox for the movie (already selected) -->
-            <label>
-              <input type="checkbox" name="movies" value="<%= movie._id %>" checked />
-              <%= movie.title %> 
-              <!-- show the movie title next to the checkbox -->
-            </label>
-          </li>
-        <% }) %>
-      </ul>
-    <% } %>
-    
+      <!-- 🔍 Search Bar (separate form) -->
+      <form class="edit-list-search-form" action="/movies/search" method="GET">
+        <input type="hidden" name="listId" value="<%= list._id %>" />
+        <input
+          type="text"
+          name="searchTerm"
+          placeholder="Search for a movie..."
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
 
-    <!-- Edit form -->
-    <form action="/lists/<%= list._id %>?_method=PUT" method="POST">
+      <!-- ✏️ Edit form (includes movie checkboxes) -->
+      <form class="edit-list-form" action="/lists/<%= list._id %>?_method=PUT" method="POST">
 
-      <label for="title">List Name:</label>
-      <input
-        type="text"
-        name="title"
-        id="title"
-        value="<%= list.title %>"
-        required
-      />
+        <h3 class="edit-list-subheading">Selected Movies</h3>
+        <% if (!list.movies || list.movies.length === 0) { %>
+          <p class="empty-msg">No movies selected yet. Use the search bar above to add.</p>
+        <% } else { %>
+          <div class="edit-list-movie-grid">
+            <% list.movies.forEach(movie => { %>
+              <div class="edit-list-movie-item">
+                <% if (movie.poster_path) { %>
+                  <img class="edit-list-movie-poster" src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>" alt="<%= movie.title %>" width="100" />
+                <% } %>
+                <label class="edit-list-movie-label">
+                  <input type="checkbox" name="movies" value="<%= movie._id %>" checked />
+                  <%= movie.title %>
+                </label>
+              </div>
+            <% }) %>
+          </div>
+        <% } %>
 
-      <br /><br />
+        <!-- 📝 List Details -->
+        <label class="edit-list-label" for="title">List Name:</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          class="edit-list-input"
+          value="<%= list.title %>"
+          required
+        />
 
-      <label for="description">Description:</label><br />
-      <textarea name="description" id="description" rows="4" cols="50" required><%= list.description %></textarea>
+        <label class="edit-list-checkbox-label" for="description">Description:</label>
+        <textarea
+          name="description"
+          id="description"
+          rows="4"
+          class="edit-list-textarea"
+          cols="50"
+          required
+        ><%= list.description %></textarea>
 
-      <br /><br />
+        <label class="public-toggle">
+          <input
+            type="checkbox"
+            name="public"
+            id="public"
+            <%= list.public ? 'checked' : '' %>
+          />
+          Make list public
+        </label>
 
-      <label for="public">Make list public:</label>
-      <input
-        type="checkbox"
-        name="public"
-        id="public"
-        <%= list.public ? 'checked' : '' %>
-      />
+        <button class="edit-list-submit-btn" type="submit">Update List</button>
+      </form>
 
-      <br /><br />
-
-      <button type="submit">Update List</button>
-    </form>
-
-    <br />
-    <a href="/lists">Back to all lists</a>
+      <br />
+      <a class="back-link" href="/lists">Back to all lists</a>
+    </div>
   </body>
 </html>
