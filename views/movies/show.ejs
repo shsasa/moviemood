@@ -61,49 +61,51 @@
   <% if (reviews && reviews.length > 0) { %>
     <% reviews.forEach(review => { %>
       <div class="movie-show-review-box">
-<p>
-  <a href="/users/<%=review.user._id%>">
-  <img src="<%= review.user.image || 'https://i.imgur.com/dM7Thhn.png' %>" class="movie-show-profile" width="100" />
-</a> 
-<strong><%= review.user.username %>:</strong>
-        </p>
         <p>
-        <% for (let i = 1; i <= 5; i++) { %>
-          <% if (i <= review.rating) { %>
-            <span class="star filled">&#9733;</span> <!-- filled star -->
-          <% } else { %>
-            <span class="star">&#9734;</span> <!-- empty star -->
+          <a href="/users/<%= review.user._id %>">
+            <img src="<%= review.user.image || 'https://i.imgur.com/dM7Thhn.png' %>" class="movie-show-profile" width="100" />
+          </a>
+          <strong><%= review.user.username %>:</strong>
+        </p>
+
+        <!-- Display stars -->
+        <p>
+          <% for (let i = 1; i <= 5; i++) { %>
+            <% if (i <= review.rating) { %>
+              <span class="star filled">&#9733;</span>
+            <% } else { %>
+              <span class="star">&#9734;</span>
+            <% } %>
           <% } %>
-        <% } %>
-      </p>
+        </p>
+
         <p><%= review.comment %></p>
 
+        <!-- Edit/Delete buttons if it's user's own review -->
         <% if (user && review.user._id.toString() === user._id.toString()) { %>
-<div style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem;">
           <!-- Delete Button -->
-          <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST" style="margin: 0;">
+          <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST" style="display:inline;">
             <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
           </form>
 
           <!-- Update Button -->
-          <button onclick="document.getElementById('edit-form-<%= review._id %>').style.display = 'block' ">
-          Edit
+          <button onclick="document.getElementById('edit-form-<%= review._id %>').style.display = 'block'">
+            Edit
           </button>
 </div>
 
-          <!-- Hidden Update Form -->
+          <!-- Hidden Edit Form -->
           <div id="edit-form-<%= review._id %>" class="movie-show-edit-form" style="display:none;">
             <form style="text-align: center;" action="/reviews/<%= review._id %>?_method=PUT" method="POST">
               <input type="hidden" name="movieId" value="<%= movie.id %>">
-<label for="rating">Rating:</label>
-<div class="star-rating">
-  <% for (let i = 5; i >= 1; i--) { %>
-    <input  type="radio" id="star<%= i %>" name="rating" value="<%= i %>" required 
-  <%= review.rating === i ? 'checked' : '' %> 
-    >
-    <label for="star<%= i %>">&#9733;</label>
-  <% } %>
-</div>
+
+              <label for="rating">Rating:</label>
+              <div class="star-rating">
+                <% for (let i = 5; i >= 1; i--) { %>
+                  <input type="radio" id="edit-star-<%= review._id %>-<%= i %>" name="rating" value="<%= i %>" <%= review.rating === i ? 'checked' : '' %>>
+                  <label for="edit-star-<%= review._id %>-<%= i %>">&#9733;</label>
+                <% } %>
+              </div>
 
               <br><br>
               <label for="comment">Comment:</label><br>
@@ -111,7 +113,7 @@
               <br><br>
               <button class="update-review-btn"style="background-color:#46007c; color:white; padding:0.5rem 1rem; border:none; border-radius:8px; cursor:pointer; " type="submit" >Update Review</button>
             </form>
-      </div>
+          </div>
         <% } %>
       </div>
     <% }) %>
@@ -119,39 +121,39 @@
     <p class="empty-msg">No reviews yet. Be the first to write one!</p>
   <% } %>
 
-  <!-- Submit form if there is no review-->
+  <!-- Show Review Form if user has not reviewed yet -->
   <% if (user && !reviews.some(r => r.user._id.toString() === user._id.toString())) { %>
+    <div class="movie-show-review-form">
+      <h3>Leave A Movie Review</h3>
+      <form action="/reviews" method="POST">
+        <input type="hidden" name="movieId" value="<%= movie.id %>">
 
-<button id="reviewButton" class="review-button">Leave A Movie Review</button>
-<div id="reviewForm" style="display: none;">
-<div class="movie-show-review-form" > <h3>Add Review</h3>
+        <label for="rating">Rating:</label>
 
+        <!-- Hidden default radio to trigger required -->
+        <input type="radio" name="rating" value="" checked hidden required>
 
-<form action="/reviews" method="POST">
-<input type="hidden" name="movieId" value="<%= movie.id %>">
-<label for="rating">Rating:</label>
-<div class="star-rating">
-    <% for (let i = 1; i <= 5; i++) { %>
-<input type="radio" id="star<%= i %>" name="rating" value="<%= i %>" required>
-<label for="star<%= i %>">&#9733;</label>
-<% } %>
-    </div>
-    <br>
-  <label for="comment">Comment:</label><br>
-    <textarea name="comment" rows="4" cols="50" required></textarea>
-  <button type="submit">Submit Review</button>
-</form>
-    </div>
+        <div class="star-rating">
+          <% for (let i = 1; i <= 5; i++) { %>
+            <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>">
+            <label for="star<%= i %>">&#9733;</label>
+          <% } %>
+        </div>
+
+        <br>
+        <label for="comment">Comment:</label><br>
+        <textarea name="comment" rows="4" cols="50" required></textarea>
+
+        <button type="submit">Submit Review</button>
+      </form>
     </div>
   <% } %>
 </div>
 </div>
 </body>
-
-
 <script>
   document.getElementById('reviewButton').addEventListener('click', () => {
     const form = document.getElementById('reviewForm');
     form.style.display = form.style.display === 'none' ? 'block' : 'none';
   })
-</script>
+</script>`

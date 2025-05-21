@@ -1573,7 +1573,10 @@ body.lists-show-page {
 }
 
 .star-rating input[type="radio"] {
-  display: none;
+    position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .star-rating label {
