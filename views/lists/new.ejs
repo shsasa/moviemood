@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <%- include('../partials/_navbar.ejs') %>
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <title>Add List</title>
   </head>
-  <body>
+  <body class="new-list-page">
 
-    <h1>Create New List</h1>
+    <h1 class="list-new-title">Create New List</h1>
 
+<div class="new-list-container">
   <!-- Search Bar -->
-  <form action="/movies/search" method="GET">
+  <form action="/movies/search" method="GET" class="new-list-search-form">
     <input
       type="text"
       name="searchTerm"
@@ -21,51 +26,52 @@
     <button type="submit">Search</button>
   </form>
 
-<h3>Selected Movies</h3>
+<h3 class="list-new-subheading">Selected Movies</h3>
 <!-- if no movies are selected, show a message  -->
 <% if (selectedMovies.length === 0) { %>
-  <p>No movies selected yet. Use the search bar above to add.</p>
+  <p class="empty-msg">No movies selected yet. Use the search bar above to add.</p>
 <% } %>
 
 <form action="/lists" method="POST">
   <!-- if there are selected movies, display them in list -->
   <% if (selectedMovies.length > 0) { %>
-    <ul>
+    <div class="new-list-movie-grid">
       <!-- loop through each selected movie -->
       <% selectedMovies.forEach(movie => { %>
-        <li>
+        <div class="new-list-movie-item">
           <!-- if the movie has a poster, display the poster -->
-          <% if (movie.poster) { %>
-            <img src="https://image.tmdb.org/t/p/w200<%= movie.poster %>" alt="<%= movie.title %>" width="100" />
+          <% if (movie.poster_path) { %>
+            <img src="https://image.tmdb.org/t/p/w200<%= movie.poster_path %>" alt="<%= movie.title %>" class="new-list-movie-poster"/>
           <% } %>
           <!-- show a checkbox for each movie with its title, already already checked -->
-          <label>
+          <label class="new-list-movie-label">
             <input type="checkbox" name="movies" value="<%= movie._id %>" checked />
             <%= movie.title %>
           </label>
-        </li>
+        </div>
       <% }) %>
-    </ul>
+    </div>
   <% } %>
 
   <label for="title">List Name:</label>
-  <input type="text" name="title" id="title" required />
+  <input type="text" name="title" id="title" required class="new-list-input"/>
 
   <br /><br />
 
   <label for="description">Description:</label><br />
-  <textarea name="description" id="description" rows="4" cols="50" required></textarea>
+  <textarea name="description" id="description" rows="4" cols="50" required class="new-list-textarea"></textarea>
 
   <br /><br />
 
-  <label for="public">Make list public:</label>
-  <input type="checkbox" name="public" id="public" />
+  <label for="public" class="new-list-checkbox-label">  
+    <input type="checkbox" name="public" id="public" />Make list public</label>
+
 
   <br /><br />
 
-  <button type="submit">Create List</button>
+  <button type="submit"  class="new-list-submit-btn"><i class="fas fa-plus-circle"></i> Create List</button>
 </form>
-  <br />
-  <a href="/lists">Back to all lists</a>
+</div>
+  <a href="/lists" class="new-list-back-link">Back to all lists</a>
   </body>
 </html>

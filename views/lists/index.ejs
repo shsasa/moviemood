@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
     <%- include('../partials/_navbar.ejs') %>
     <title>All Movie Lists</title>
   </head>
@@ -22,9 +26,17 @@
       <% lists.forEach(list => { %>
     <div class="movie-list-card">
     <!-- show the title of the list -->
-    <h2><%= list.title %></h2>
-    <!-- show the status if the list is public or private -->
-    <p>Status: <%= list.public ? 'Public' : 'Private' %></p>
+    <h2><%= list.title %>
+      <!-- show the status if the list is public or private -->
+<p class="class-status">
+  <% if (list.public) { %>
+    <i class="fa-solid fa-lock-open status-icon" style="color: black;" title="Public"></i>
+  <% } else { %>
+    <i class="fa-solid fa-lock status-icon" style="color: black;" title="Private"></i>
+  <% } %>
+</p>
+    </h2>
+
       
     <div class="list-movie-preview">
     <!-- show up to 4 movie posters as a preview -->
