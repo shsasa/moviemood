@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
     //List.find() => its to find all documents (lists)in the List collection that match the condition inside {}
     lists = await List.find({
-      //$or its a MongoDB operator, match documents where at least one of the conditions in the arry is true.
+      //$or its a MongoDB operator, match documents where at least one of the conditions in the array is true.
       $or: [{ user: userId }, { public: true }]
       // if either belongs to the current user or its public
     }).populate('movies') //load data from each list (get full movie objects) .populate(is Mongoose method to fetch data)

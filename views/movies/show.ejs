@@ -62,8 +62,8 @@
     <% reviews.forEach(review => { %>
       <div class="movie-show-review-box">
 <p>
-  <a href="/users/<%= user._id %>">
-  <img src="<%= user.image || 'https://i.imgur.com/dM7Thhn.png' %>" class="movie-show-profile" width="100" />
+  <a href="/users/<%=review.user._id%>">
+  <img src="<%= review.user.image || 'https://i.imgur.com/dM7Thhn.png' %>" class="movie-show-profile" width="100" />
 </a> 
 <strong><%= review.user.username %>:</strong>
         </p>
@@ -119,8 +119,12 @@
 
   <!-- Submit form if there is no review-->
   <% if (user && !reviews.some(r => r.user._id.toString() === user._id.toString())) { %>
-    <div class="movie-show-review-form" >
-  <h3>Leave A Movie Review</h3>
+
+<button id="reviewButton" class="review-button">Leave A Movie Review</button>
+<div id="reviewForm" style="display: none;">
+<div class="movie-show-review-form" > <h3>Add Review</h3>
+
+
 <form action="/reviews" method="POST">
 <input type="hidden" name="movieId" value="<%= movie.id %>">
 <label for="rating">Rating:</label>
@@ -136,7 +140,14 @@
   <button type="submit">Submit Review</button>
 </form>
     </div>
+    </div>
   <% } %>
 </div>
 </div>
 </body>
+<script>
+  document.getElementById('reviewButton').addEventListener('click', () => {
+    const form = document.getElementById('reviewForm');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  })
+</script>
