@@ -74,6 +74,15 @@ MovieMood is a web app that helps you keep track of the movies you want to watch
 
 ---
 
+### **_ERD of the project_**
+
+- [LucidApp](https://lucid.app/lucidchart/ed7454f2-f2d0-4116-ab35-60fc2670a222/edit?viewport_loc=-356%2C-175%2C623%2C819%2C0_0&invitationId=inv_3a208896-d2ac-49e8-bf94-e13aebba226c)
+
+### **_trello board_**
+
+- [Trello](https://trello.com/invite/b/682445130c64129795902492/ATTI420ac5abd1e1f87015c374dc6d1bf143E971680F/project02)
+---
+
 ### **_Credits_**
 
 ##### Markdown Guide: [ia.net](https://ia.net/writer/support/general/markdown-guide)

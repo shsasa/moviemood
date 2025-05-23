@@ -15,13 +15,13 @@
 
 3. As a user, I want to add a movie to my watchlist so that I can remember to watch it later.
 
-4. As a user, I want to mark a movie as watched or unwatched so that I can track my viewing progress.
+4. As a user, I want to mark a movie as a favorite or remove it from favorites so that I can easily access the movies I love.
 
 5. As a user, I want to view all the movies I’ve added so that I can manage my entire list in one place.
 
 6. As a user, I want to view details of a specific movie I’ve added so that I can see its release year, genre, and rating.
 
-7. As a user, I want to edit the details of a movie I added so that I can update its info or change its watched status.
+7. As a user, I want to watch the trailer of a movie so that I can decide whether I want to watch the full film.
 
 8. As a user, I want to delete a movie from my list so that I can clean up movies I’m no longer interested in.
 
@@ -33,7 +33,7 @@
 
 12. As a user, I want to delete my review so that I can remove outdated or unwanted feedback.
 
-13. As a user, I want to make sure other users cannot view or edit my movies and reviews so that my watchlist remains private.
+13. As a user, I want to control the privacy of my movie lists and reviews so that only I can view or edit them when marked as private.
 
 14. As a user, I want to edit my profile so that I can update my personal information like name, email, or password.
 
