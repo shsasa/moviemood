@@ -31,7 +31,7 @@ MovieMood is a web app that helps you keep track of the movies you want to watch
 1. User authentication and profile management
 2. Create and manage personal movie entries
 3. Custom lists by mood/theme
-4. Watch/unWatch toggle
+4. Favorite/unFavorite toggle
 5. Add, edit, and delete personal reviews
 
 
